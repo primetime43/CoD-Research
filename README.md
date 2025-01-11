@@ -2,6 +2,8 @@
 
 Welcome to the CoD Research Repository! This repository contains research and data related to various Call of Duty (CoD) titles, from CoD4 to CoD10.
 
+A good site to begin https://codresearch.dev/index.php/Main_Page
+
 ## Repository Overview
 
 Each branch in this repository is dedicated to a specific Call of Duty title. The branches contain research materials, data sets, and scripts specific to the game they are named after.
