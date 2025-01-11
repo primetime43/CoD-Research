@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+codresearch.dev	TRUE	/	FALSE	1999999999	codresea_mw416_mw__session	a7b7das0bg42cm5re8mb9dthedilfqas
+
