@@ -1,0 +1,124 @@
+/* Reset some basic elements for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Section */
+#siteSub {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.noprint {
+    /* Hide elements with this class when printing */
+    display: block;
+}
+
+@media print {
+    .noprint {
+        display: none;
+    }
+}
+
+/* Content Subtitle */
+#contentSub {
+    margin-bottom: 20px;
+}
+
+/* Main Content Area */
+#mw-content-text {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.mw-content-ltr {
+    direction: ltr;
+}
+
+.mw-parser-output p {
+    margin-bottom: 15px;
+}
+
+/* Tables */
+table.wikitable, table.wikitable th, table.wikitable td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+table.wikitable th, table.wikitable td {
+    padding: 10px;
+    text-align: left;
+}
+
+table.wikitable th {
+    background-color: #f2f2f2;
+}
+
+table.wikitable tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Simple Table Styling for Other Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f9f9f9;
+}
+
+/* Headings */
+h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    table, table th, table td {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}

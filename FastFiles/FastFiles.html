@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COD Engine Research</title>
+    <link rel="stylesheet" href="FastFiles.css">
+</head>
+<body>
+    <div id="siteSub" class="noprint">From COD Engine Research</div>
+
+    <div id="contentSub">
+        <div id="mw-content-subtitle"></div>
+    </div>
+
+    <div id="mw-content-text" class="mw-body-content">
+        <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr">
+            <p>
+                FastFiles are the CoD engine's way of storing Zone files. FastFiles (FFs) almost always have some sort of RSA2048 signature, a zlib compression along the way, and then on later CoDs some encryption. The Zones are a library of <a href="/index.php/Category:Assets" title="Category:Assets">assets</a>. Every FF in every CoD game starts the same way...
+            </p>
+
+            <table class="wikitable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Offset</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Magic</td>
+                        <td>0x0</td>
+                        <td>char[8]</td>
+                        <td>"IWffu100" for unsigned fastfiles, "IWff0100" for signed fastfiles, "TAff0100" for Treyarch's Black Ops 2 fastfile, and "S1ff0100" for Sledgehammer Advanced Warfare fastfiles.</td>
+                    </tr>
+                    <tr>
+                        <td>Version</td>
+                        <td>0x8</td>
+                        <td>int</td>
+                        <td>See below.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                So by reading the version of the input FF, you can tell what system and game the FF is from. Note that pre-alpha versions of Call of Duty 4 are missing the version integer, and must be handled specially. Also keep in mind that the Quantum of Solace FFs are missing the magic in the struct above.
+            </p>
+
+            <table class="wikitable">
+                <thead>
+                    <tr>
+                        <th>XFILE_VERSION</th>
+                        <th><b>007:QoS</b></th>
+                        <th><b>CoD4</b></th>
+                        <th><b>WaW</b></th>
+                        <th><b>MW2</b></th>
+                        <th><b>BO1</b></th>
+                        <th><b>MW3</b></th>
+                        <th><b>BO2</b></th>
+                        <th><b>Ghosts</b></th>
+                        <th><b>CoD: Online</b></th>
+                        <th><b>Advanced Warfare</b></th>
+                        <th><b>BO3 Beta</b></th>
+                        <th><b>BO3</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Xbox 360</td>
+                        <td>0x1D6</td>
+                        <td>0x1</td>
+                        <td>0x183</td>
+                        <td>0x10D</td>
+                        <td>0x1D9</td>
+                        <td>0x70</td>
+                        <td>0x92</td>
+                        <td>0x22E</td>
+                        <td>n/a</td>
+                        <td>0x72E</td>
+                        <td>n/a</td>
+                        <td>0x253</td>
+                    </tr>
+                    <tr>
+                        <td>Playstation 3</td>
+                        <td>0x1D6</td>
+                        <td>0x1</td>
+                        <td>0x183</td>
+                        <td>0x10D</td>
+                        <td>0x1D9</td>
+                        <td>0x70</td>
+                        <td>0x92</td>
+                        <td>0x22E</td>
+                        <td>n/a</td>
+                        <td>0x72E</td>
+                        <td>n/a</td>
+                        <td>0x25E</td>
+                    </tr>
+                    <tr>
+                        <td>Wii/Wii-U</td>
+                        <td>0x1D2</td>
+                        <td>0x1A2</td>
+                        <td>0x19B</td>
+                        <td>n/a</td>
+                        <td>0x1DD</td>
+                        <td>0x6B</td>
+                        <td>0x94</td>
+                        <td>0x22E</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td>PC</td>
+                        <td>0x1D6</td>
+                        <td>0x5</td>
+                        <td>0x183</td>
+                        <td>0x114</td>
+                        <td>0x1D9</td>
+                        <td>0x1</td>
+                        <td>0x93</td>
+                        <td>0x135</td>
+                        <td>0x13C</td>
+                        <td>0x72E</td>
+                        <td>0x1FB</td>
+                        <td>n/a</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="Pointers_in_Zone_Files">Pointers in Zone Files</h2>
+            <p>
+                Infinity Ward implemented their own way of loading data that can already be found earlier in the zone file. What should be an address in memory is instead stored either as -1, -2, or as an offset. If the pointer is -1 or -2, then the data follows, typically in order. If the pointer is not -1 or -2, the first 4 bits (or 3 bits in BO2) are extracted and used as an index for the g_streamBlocks array. The other bits are the offset and are added to the data pointer in g_streamBlocks. The offset is only correct after the zone file has been loaded in memory. This is because some data is relocated (aligned) which changes the size of the zone. Some differences:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Difference</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strings</td>
+                        <td>Aligned by 4 bytes</td>
+                    </tr>
+                    <tr>
+                        <td>Asset headers</td>
+                        <td>Stored in pools</td>
+                    </tr>
+                    <tr>
+                        <td>Sound, image, and shader programs</td>
+                        <td>Stored in pools</td>
+                    </tr>
+                    <tr>
+                        <td>Zone header</td>
+                        <td>Removed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
