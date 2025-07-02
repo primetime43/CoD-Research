@@ -6,6 +6,8 @@ A good site to begin https://codresearch.dev/index.php/Main_Page
 
 ## Repository Overview
 
+The purpose of this research wiki is to preserve all of the knowledge collected by the community over the years from various forum threads and posts—much of which has become difficult to access or lost as forums have been shut down—and to organize it.
+
 Each branch in this repository is dedicated to a specific Call of Duty title. The branches contain research materials, data sets, and scripts specific to the game they are named after.
 
 ### Branches
