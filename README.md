@@ -8,43 +8,43 @@ Welcome to the CoD Research Repository! This repository contains research and do
 
 <div class="game-grid">
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD4">
+    <a href="COD4/">
       <h3>CoD4</h3>
       <p>Modern Warfare</p>
     </a>
   </div>
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD5">
+    <a href="COD5/">
       <h3>CoD5</h3>
       <p>World at War</p>
     </a>
   </div>
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD6">
+    <a href="COD6/">
       <h3>CoD6</h3>
       <p>Modern Warfare 2</p>
     </a>
   </div>
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD7">
+    <a href="COD7/">
       <h3>CoD7</h3>
       <p>Black Ops</p>
     </a>
   </div>
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD8">
+    <a href="COD8/">
       <h3>CoD8</h3>
       <p>Modern Warfare 3</p>
     </a>
   </div>
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD9">
+    <a href="COD9/">
       <h3>CoD9</h3>
       <p>Black Ops II</p>
     </a>
   </div>
   <div class="game-card">
-    <a href="https://github.com/primetime43/CoD-Research/tree/COD10">
+    <a href="COD10/">
       <h3>CoD10</h3>
       <p>Ghosts</p>
     </a>
