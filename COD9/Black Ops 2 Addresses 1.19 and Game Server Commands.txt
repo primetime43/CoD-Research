@@ -1,0 +1,50 @@
+Black Ops 2 Addresses and Game Server Commands
+
+Credit for addresses and game server commands to Jewels. Credit for making pastebin to Angry
+
+TOC Address: 00D67E98
+Playerstate: 001780F28
+G_Entity: 0016B9F20 
+G_Hudelems: 0015DDB00
+Hudelem_Alloc: 002759F0
+G_SetOrigin: 002794F8
+G_InitializeAmmo: 001E6838
+SV_GameSendServerCommand: 00349F6C
+R_SetFrameFrog: 007AA050
+Cbuff_Addtext: 00313C18
+SetClientViewAngles: 001DD6D8
+VectoAngles: 003CAB90
+G_Spawn: 00278AC0
+G_ModelIndex: 00275FE0
+G_Addevent: 002797B0
+Key_IsDown: 001185C0
+G_GivePlayerWeapon: 002A81C4
+Player_Die: 001FD370
+BG_GetWeaponDef: 00606F08
+SV_SetConfigString: 0034C4C8
+SV_GetConfigString: 00267010
+SV_LinkEntity: 00359990
+SV_UnlinkEntity: 003598CC
+Add_Ammo: 002089A8
+FPS: 0039777C
+Jump_height: 005BE0B4, 0x45 0x00
+client_s = 0x01BB6600 
+client_s_size = 0x4E180
+---------------------------------
+
+Game Server Commands
+
+O "Print Killfeed"
+< "Print Center"
+o "Vision"
+; "Print Killfeed"
+^ "Dvar"
+5 "Kick everyone from the lobby" (Exmple 5 ^5GTFO)
+7 "Freeze PS3" Exmple:7 30 90
+d "Blur" Exmple: d 10000 10000 = Blur 10 seconds
+@ - Anti Quit (1 On , 0 Off)
+"s" - reset fov
+Some Dvars:
+^ 5 - cg_fov
+^ 6 90 - PS3 Freeze.
+^ 10 906666 - Players taking biger size. 0 - Off

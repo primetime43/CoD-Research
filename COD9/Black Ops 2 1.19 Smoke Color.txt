@@ -1,0 +1,19 @@
+Black Ops 2 1.19 Smoke Color Offset
+
+Credit for offset goes to xbold. Credit for making pastebin goes to Angry.
+
+Offset Code: 0x009E50E0
+
+How To Use:
+
+int valueR = Convert.ToInt32(logInNumeric20.Value);
+            int valueG = Convert.ToInt32(logInNumeric19.Value);
+            int valueB = Convert.ToInt32(logInNumeric18.Value);
+
+            uint Red = 0x009E50E0;
+            uint Green = 0x009E50E0 + 0x04;
+            uint Blue = 0x009E50E0 + 0x08;
+
+            PS3.Extension.WriteFloat(Red, (float)valueR);
+            PS3.Extension.WriteFloat(Green, (float)valueG);
+            PS3.Extension.WriteFloat(Blue, (float)valueB);

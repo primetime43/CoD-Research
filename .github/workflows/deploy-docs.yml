@@ -4,13 +4,6 @@ on:
   push:
     branches:
       - main
-      - COD4
-      - COD5
-      - COD6
-      - COD7
-      - COD8
-      - COD9
-      - COD10
   workflow_dispatch:
 
 permissions:
@@ -31,55 +24,6 @@ jobs:
         with:
           ref: main
           path: site
-
-      - name: Checkout COD4 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD4
-          path: site/COD4
-        continue-on-error: true
-
-      - name: Checkout COD5 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD5
-          path: site/COD5
-        continue-on-error: true
-
-      - name: Checkout COD6 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD6
-          path: site/COD6
-        continue-on-error: true
-
-      - name: Checkout COD7 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD7
-          path: site/COD7
-        continue-on-error: true
-
-      - name: Checkout COD8 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD8
-          path: site/COD8
-        continue-on-error: true
-
-      - name: Checkout COD9 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD9
-          path: site/COD9
-        continue-on-error: true
-
-      - name: Checkout COD10 branch
-        uses: actions/checkout@v4
-        with:
-          ref: COD10
-          path: site/COD10
-        continue-on-error: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

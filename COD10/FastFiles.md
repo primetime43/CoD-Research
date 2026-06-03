@@ -1,0 +1,1 @@
+[Download Wii U symbols for mp and sp functions](https://www.mediafire.com/file/5zlpo95p533bl2r/WiiU+-+Call+of+Duty+Ghosts+%28Title+Update+112%29+MP%2BSP+Symbols.rar)

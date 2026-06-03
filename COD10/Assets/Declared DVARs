@@ -1,0 +1,2969 @@
+//Name: bot_AutoConnectDefault
+//Type: 0x6
+
+//Name: bot_DifficultyDefault
+//Type: 0x6
+
+//Name: g_hardcore
+//Type: 0x0
+
+//Name: sv_maxclients
+//Type: 0x5
+
+//Name: cg_hudLegacySplitscreenScale
+//Type: 0x1
+
+//Name: cg_weaponHintsCoD1Style
+//Type: 0x0
+
+//Name: drawEntityCountSize
+//Type: 0x5
+
+//Name: cg_hudSplitscreenCompassScale
+//Type: 0x1
+
+//Name: cg_hudSplitscreenCompassElementScale
+//Type: 0x1
+
+//Name: cg_hudSplitscreenStanceScale
+//Type: 0x1
+
+//Name: cl_paused
+//Type: 0x5
+
+//Name: developer
+//Type: 0x5
+
+//Name: cg_headIconMinScreenRadius
+//Type: 0x1
+
+//Name: cg_blood
+//Type: 0x0
+
+//Name: useRelativeTeamColors
+//Type: 0x0
+
+//Name: cg_turretKillCamBackDist
+//Type: 0x1
+
+//Name: cg_hudMapFriendlyWidth
+//Type: 0x1
+
+//Name: cg_hudMapFriendlyHeight
+//Type: 0x1
+
+//Name: cg_hudMapPlayerWidth
+//Type: 0x1
+
+//Name: cg_hudMapPlayerHeight
+//Type: 0x1
+
+//Name: cg_hudMapBorderWidth
+//Type: 0x1
+
+//Name: waypointIconWidth
+//Type: 0x1
+
+//Name: waypointIconHeight
+//Type: 0x1
+
+//Name: waypointOffscreenPointerDistance
+//Type: 0x1
+
+//Name: clientSideEffects
+//Type: 0x0
+
+//Name: perk_extendedMagsRifleAmmo
+//Type: 0x5
+
+//Name: r_sunsprite_shader
+//Type: 0x7
+
+//Name: r_sunsprite_size
+//Type: 0x1
+
+//Name: r_sunflare_shader
+//Type: 0x7
+
+//Name: r_sunflare_min_size
+//Type: 0x1
+
+//Name: r_sunflare_min_angle
+//Type: 0x1
+
+//Name: r_sunflare_max_size
+//Type: 0x1
+
+//Name: r_sunflare_max_angle
+//Type: 0x1
+
+//Name: r_sunflare_max_alpha
+//Type: 0x1
+
+//Name: r_sunflare_fadein
+//Type: 0x1
+
+//Name: r_sunflare_fadeout
+//Type: 0x1
+
+//Name: r_sunblind_min_angle
+//Type: 0x1
+
+//Name: r_sunblind_max_angle
+//Type: 0x1
+
+//Name: r_sunblind_max_darken
+//Type: 0x1
+
+//Name: r_sunblind_fadein
+//Type: 0x1
+
+//Name: r_sunblind_fadeout
+//Type: 0x1
+
+//Name: r_sunglare_min_angle
+//Type: 0x1
+
+//Name: r_sunglare_max_angle
+//Type: 0x1
+
+//Name: r_sunglare_max_lighten
+//Type: 0x1
+
+//Name: r_sunglare_fadein
+//Type: 0x1
+
+//Name: r_sunglare_fadeout
+//Type: 0x1
+
+//Name: r_sun_fx_position
+//Type: 0x3
+
+//Name: r_ignore
+//Type: 0x5
+
+//Name: r_ignoref
+//Type: 0x1
+
+//Name: r_gamma
+//Type: 0x1
+
+//Name: r_ignorehwgamma
+//Type: 0x0
+
+//Name: r_blacklevel
+//Type: 0x1
+
+//Name: r_texFilterAnisoMax
+//Type: 0x5
+
+//Name: r_texFilterDisable
+//Type: 0x0
+
+//Name: r_texFilterAnisoMin
+//Type: 0x5
+
+//Name: r_texFilterMipMode
+//Type: 0x6
+
+//Name: r_texShowMipMode
+//Type: 0x6
+
+//Name: r_texFilterMipBias
+//Type: 0x1
+
+//Name: r_texFilterProbeBilinear
+//Type: 0x0
+
+//Name: r_subwindow
+//Type: 0x4
+
+//Name: r_znear
+//Type: 0x1
+
+//Name: r_zfar
+//Type: 0x1
+
+//Name: r_fog
+//Type: 0x0
+
+//Name: r_fog_depthhack_scale
+//Type: 0x1
+
+//Name: r_polygonOffsetScale
+//Type: 0x1
+
+//Name: r_polygonOffsetBias
+//Type: 0x1
+
+//Name: r_artUseTweaks
+//Type: 0x0
+
+//Name: r_skyFogUseTweaks
+//Type: 0x0
+
+//Name: r_sky_fog_min_angle
+//Type: 0x1
+
+//Name: r_sky_fog_max_angle
+//Type: 0x1
+
+//Name: r_sky_fog_intensity
+//Type: 0x1
+
+//Name: r_lightMap
+//Type: 0x6
+
+//Name: r_colorMap
+//Type: 0x6
+
+//Name: r_detailMap
+//Type: 0x6
+
+//Name: r_displacementMap
+//Type: 0x6
+
+//Name: r_normalMap
+//Type: 0x6
+
+//Name: r_specularMap
+//Type: 0x6
+
+//Name: r_primaryLightUseTweaks
+//Type: 0x0
+
+//Name: r_primaryLightTweakDiffuseStrength
+//Type: 0x1
+
+//Name: r_primaryLightTweakSpecularStrength
+//Type: 0x1
+
+//Name: r_charLightAmbient
+//Type: 0x9
+
+//Name: r_primaryLightUseTweaks_NG
+//Type: 0x0
+
+//Name: r_primaryLightTweakDiffuseStrength_NG
+//Type: 0x1
+
+//Name: r_primaryLightTweakSpecularStrength_NG
+//Type: 0x1
+
+//Name: r_charLightAmbient_NG
+//Type: 0x9
+
+//Name: r_viewModelPrimaryLightUseTweaks
+//Type: 0x0
+
+//Name: r_viewModelPrimaryLightTweakDiffuseStrength
+//Type: 0x1
+
+//Name: r_viewModelPrimaryLightTweakSpecularStrength
+//Type: 0x1
+
+//Name: r_viewModelLightAmbient
+//Type: 0x9
+
+//Name: r_viewModelPrimaryLightUseTweaks_NG
+//Type: 0x0
+
+//Name: r_viewModelPrimaryLightTweakDiffuseStrength_NG
+//Type: 0x1
+
+//Name: r_viewModelPrimaryLightTweakSpecularStrength_NG
+//Type: 0x1
+
+//Name: r_viewModelLightAmbient_NG
+//Type: 0x9
+
+//Name: r_resampleScene
+//Type: 0x0
+
+//Name: r_debugLineWidth
+//Type: 0x1
+
+//Name: r_clampLodScale
+//Type: 0x1
+
+//Name: r_vc_makelog
+//Type: 0x5
+
+//Name: r_vc_showlog
+//Type: 0x5
+
+//Name: r_showLightGrid
+//Type: 0x5
+
+//Name: r_showMissingLightGrid
+//Type: 0x0
+
+//Name: r_showReflectionProbeSelection
+//Type: 0x6
+
+//Name: r_cacheSModelLighting
+//Type: 0x0
+
+//Name: r_cacheModelLighting
+//Type: 0x0
+
+//Name: r_lightGridUseTweakedValues
+//Type: 0x0
+
+//Name: r_heroLighting
+//Type: 0x0
+
+//Name: r_lightCacheLessFrequentPeriod
+//Type: 0x5
+
+//Name: r_lightCacheLessFrequentMaxDistance
+//Type: 0x1
+
+//Name: r_showModelLightingLowWaterMark
+//Type: 0x0
+
+//Name: r_envMapOverride
+//Type: 0x0
+
+//Name: r_envMapMinIntensity
+//Type: 0x1
+
+//Name: r_envMapMaxIntensity
+//Type: 0x1
+
+//Name: r_envMapExponent
+//Type: 0x1
+
+//Name: r_envMapSunIntensity
+//Type: 0x1
+
+//Name: r_flushAfterExecute
+//Type: 0x0
+
+//Name: r_scaleViewport
+//Type: 0x1
+
+//Name: r_smp_backend
+//Type: 0x0
+
+//Name: r_smp_worker
+//Type: 0x0
+
+//Name: r_smp_worker_thread0
+//Type: 0x0
+
+//Name: r_smp_worker_thread1
+//Type: 0x0
+
+//Name: r_smp_worker_thread2
+//Type: 0x0
+
+//Name: r_cmdbuf_worker
+//Type: 0x0
+
+//Name: r_cmdbuf_handoff
+//Type: 0x0
+
+//Name: r_vsync
+//Type: 0x0
+
+//Name: r_clear
+//Type: 0x6
+
+//Name: r_clearColor
+//Type: 0x8
+
+//Name: r_clearColor2
+//Type: 0x8
+
+//Name: r_dlightLimit
+//Type: 0x5
+
+//Name: r_spotLightShadows
+//Type: 0x0
+
+//Name: r_spotLightEntityShadows
+//Type: 0x0
+
+//Name: r_drawWater
+//Type: 0x0
+
+//Name: r_lockPvs
+//Type: 0x0
+
+//Name: r_skipPvs
+//Type: 0x0
+
+//Name: r_portalBevels
+//Type: 0x1
+
+//Name: r_portalBevelsOnly
+//Type: 0x0
+
+//Name: r_singleCell
+//Type: 0x0
+
+//Name: r_portalWalkLimit
+//Type: 0x5
+
+//Name: r_portalMinClipArea
+//Type: 0x1
+
+//Name: r_portalMinRecurseDepth
+//Type: 0x5
+
+//Name: r_showFloatZDebug
+//Type: 0x5
+
+//Name: r_showFbColorDebug
+//Type: 0x6
+
+//Name: r_depthPrepass
+//Type: 0x6
+
+//Name: r_highLodDist
+//Type: 0x1
+
+//Name: r_mediumLodDist
+//Type: 0x1
+
+//Name: r_lowLodDist
+//Type: 0x1
+
+//Name: r_lowestLodDist
+//Type: 0x1
+
+//Name: r_forceLod
+//Type: 0x6
+
+//Name: sm_enable
+//Type: 0x0
+
+//Name: sm_sunEnable
+//Type: 0x0
+
+//Name: sm_spotEnable
+//Type: 0x0
+
+//Name: sm_spotLimit
+//Type: 0x5
+
+//Name: sm_maxLightsWithShadows
+//Type: 0x5
+
+//Name: sm_minSpotLightScore
+//Type: 0x1
+
+//Name: sm_spotShadowFadeTime
+//Type: 0x1
+
+//Name: sm_dynlightAllSModels
+//Type: 0x0
+
+//Name: sm_lightScore_eyeProjectDist
+//Type: 0x1
+
+//Name: sm_lightScore_spotProjectFrac
+//Type: 0x1
+
+//Name: sm_cameraOffset
+//Type: 0x1
+
+//Name: sm_polygonOffsetScale
+//Type: 0x1
+
+//Name: sm_polygonOffsetBias
+//Type: 0x1
+
+//Name: sm_sunShadowCenter
+//Type: 0x3
+
+//Name: sm_sunShadowCenterMode
+//Type: 0x0
+
+//Name: sm_strictCull
+//Type: 0x0
+
+//Name: sm_spotDistCull
+//Type: 0x0
+
+//Name: sm_fastSunShadow
+//Type: 0x0
+
+//Name: sm_qualitySpotShadow
+//Type: 0x0
+
+//Name: r_screenFilterQuads
+//Type: 0x5
+
+//Name: r_blur
+//Type: 0x1
+
+//Name: r_distortion
+//Type: 0x0
+
+//Name: r_globalGenericMaterialScale
+//Type: 0x1
+
+//Name: r_glow_allowed_script_forced
+//Type: 0x0
+
+//Name: r_glow_allowed
+//Type: 0x0
+
+//Name: r_glow
+//Type: 0x0
+
+//Name: r_glowUseTweaks
+//Type: 0x0
+
+//Name: r_glowTweakEnable
+//Type: 0x0
+
+//Name: r_glowTweakUseAltCutoff
+//Type: 0x0
+
+//Name: r_glowTweakAltColorScaleR
+//Type: 0x1
+
+//Name: r_glowTweakAltColorScaleG
+//Type: 0x1
+
+//Name: r_glowTweakAltColorScaleB
+//Type: 0x1
+
+//Name: r_glowTweakAltCutoff
+//Type: 0x1
+
+//Name: r_glowTweakRadius0
+//Type: 0x1
+
+//Name: r_glowTweakBloomIntensity0
+//Type: 0x1
+
+//Name: r_glowTweakBloomCutoff
+//Type: 0x1
+
+//Name: r_glowTweakBloomDesaturation
+//Type: 0x1
+
+//Name: r_glowTweakBloomPinch
+//Type: 0x1
+
+//Name: r_filmUseTweaks
+//Type: 0x0
+
+//Name: r_filmAltShader
+//Type: 0x0
+
+//Name: r_filmTweakEnable
+//Type: 0x0
+
+//Name: r_filmTweakContrast
+//Type: 0x1
+
+//Name: r_contrast
+//Type: 0x1
+
+//Name: r_brightness
+//Type: 0x1
+
+//Name: r_desaturation
+//Type: 0x1
+
+//Name: r_filmTweakBrightness
+//Type: 0x1
+
+//Name: r_filmTweakDesaturation
+//Type: 0x1
+
+//Name: r_filmTweakDesaturationDark
+//Type: 0x1
+
+//Name: r_filmTweakInvert
+//Type: 0x0
+
+//Name: r_filmTweakDarkTint
+//Type: 0x9
+
+//Name: r_filmTweakMediumTint
+//Type: 0x9
+
+//Name: r_filmTweakLightTint
+//Type: 0x9
+
+//Name: r_dof_enable
+//Type: 0x0
+
+//Name: r_dof_tweak
+//Type: 0x6
+
+//Name: r_dof_nearBlur
+//Type: 0x1
+
+//Name: r_dof_farBlur
+//Type: 0x1
+
+//Name: r_dof_viewModelStart
+//Type: 0x1
+
+//Name: r_dof_viewModelEnd
+//Type: 0x1
+
+//Name: r_dof_nearStart
+//Type: 0x1
+
+//Name: r_dof_nearEnd
+//Type: 0x1
+
+//Name: r_dof_farStart
+//Type: 0x1
+
+//Name: r_dof_farEnd
+//Type: 0x1
+
+//Name: r_dof_bias
+//Type: 0x1
+
+//Name: r_cc_toneBias1
+//Type: 0x3
+
+//Name: r_cc_contrastScale1
+//Type: 0x3
+
+//Name: r_cc_contrastPow1
+//Type: 0x3
+
+//Name: r_cc_desaturation1
+//Type: 0x1
+
+//Name: r_cc_toneBias2
+//Type: 0x3
+
+//Name: r_cc_contrastScale2
+//Type: 0x3
+
+//Name: r_cc_contrastPow2
+//Type: 0x3
+
+//Name: r_cc_desaturation2
+//Type: 0x1
+
+//Name: r_cc_lerp1
+//Type: 0x1
+
+//Name: r_cc_lerp2
+//Type: 0x1
+
+//Name: r_cc_mode
+//Type: 0x6
+
+//Name: r_pixelShaderGPRReallocation
+//Type: 0x5
+
+//Name: r_showPIPTexture
+//Type: 0x0
+
+//Name: r_showBlurSceneScissor
+//Type: 0x0
+
+//Name: r_showCharacterSceneTexture
+//Type: 0x0
+
+//Name: r_showBlurScene
+//Type: 0x0
+
+//Name: r_outdoorFeather
+//Type: 0x1
+
+//Name: r_sun_from_dvars
+//Type: 0x0
+
+//Name: r_atlasAnimFPS
+//Type: 0x5
+
+//Name: developer
+//Type: 0x5
+
+//Name: r_thermalColorScale
+//Type: 0x1
+
+//Name: r_thermalColorOffset
+//Type: 0x1
+
+//Name: r_thermalDetailScale
+//Type: 0x1
+
+//Name: r_thermalFadeControl
+//Type: 0x6
+
+//Name: r_thermalFadeColor
+//Type: 0x8
+
+//Name: r_thermalFadeMin
+//Type: 0x1
+
+//Name: r_thermalFadeMax
+//Type: 0x1
+
+//Name: fx_enable
+//Type: 0x0
+
+//Name: fx_draw
+//Type: 0x0
+
+//Name: fx_draw_spotLight
+//Type: 0x0
+
+//Name: fx_draw_omniLight
+//Type: 0x0
+
+//Name: fx_cull_elem_spawn
+//Type: 0x0
+
+//Name: fx_cull_elem_draw
+//Type: 0x0
+
+//Name: fx_marks
+//Type: 0x0
+
+//Name: fx_marks_smodels
+//Type: 0x0
+
+//Name: fx_marks_ents
+//Type: 0x0
+
+//Name: fx_marks_nearlimit
+//Type: 0x5
+
+//Name: fx_freeze
+//Type: 0x0
+
+//Name: fx_debugBolt
+//Type: 0x1
+
+//Name: fx_count
+//Type: 0x0
+
+//Name: fx_visMinTraceDist
+//Type: 0x1
+
+//Name: fx_profileSort
+//Type: 0x6
+
+//Name: fx_profileSkip
+//Type: 0x5
+
+//Name: fx_profileFilter
+//Type: 0x7
+
+//Name: fx_profileFilterElemCountZero
+//Type: 0x0
+
+//Name: fx_profile
+//Type: 0x5
+
+//Name: fx_mark_profile
+//Type: 0x5
+
+//Name: fx_drawClouds
+//Type: 0x0
+
+//Name: fx_deferelem
+//Type: 0x0
+
+//Name: fx_draw_simd
+//Type: 0x0
+
+//Name: fx_killEffectOnRewind
+//Type: 0x0
+
+//Name: fx_alphaThreshold
+//Type: 0x5
+
+//Name: glass_break
+//Type: 0x0
+
+//Name: glass_edge_angle
+//Type: 0x2
+
+//Name: glass_fall_ratio
+//Type: 0x2
+
+//Name: glass_fall_delay
+//Type: 0x2
+
+//Name: glass_fx_chance
+//Type: 0x1
+
+//Name: glass_hinge_friction
+//Type: 0x1
+
+//Name: glass_max_pieces_per_frame
+//Type: 0x5
+
+//Name: glass_max_shatter_fx_per_frame
+//Type: 0x5
+
+//Name: glass_shard_maxsize
+//Type: 0x1
+
+//Name: glass_fringe_maxsize
+//Type: 0x1
+
+//Name: glass_fringe_maxcoverage
+//Type: 0x1
+
+//Name: glass_trace_interval
+//Type: 0x5
+
+//Name: glass_physics_chance
+//Type: 0x1
+
+//Name: glass_physics_maxdist
+//Type: 0x1
+
+//Name: glass_shattered_scale
+//Type: 0x1
+
+//Name: glass_crack_pattern_scale
+//Type: 0x1
+
+//Name: glass_fall_gravity
+//Type: 0x1
+
+//Name: glass_linear_vel
+//Type: 0x2
+
+//Name: glass_angular_vel
+//Type: 0x2
+
+//Name: r_rimLight0Pitch
+//Type: 0x1
+
+//Name: r_rimLight0Heading
+//Type: 0x1
+
+//Name: r_rimLight0Color
+//Type: 0x9
+
+//Name: r_rimLightDiffuseIntensity
+//Type: 0x1
+
+//Name: r_rimLightSpecIntensity
+//Type: 0x1
+
+//Name: r_rimLightBias
+//Type: 0x1
+
+//Name: r_rimLightPower
+//Type: 0x1
+
+//Name: r_rimLightUseTweaks
+//Type: 0x0
+
+//Name: r_ssrPositionCorrection
+//Type: 0x1
+
+//Name: r_ssrFadeInDuration
+//Type: 0x1
+
+//Name: r_hudOutlineEnable
+//Type: 0x0
+
+//Name: r_hudOutlinePostMode
+//Type: 0x6
+
+//Name: r_hudOutlineWhen
+//Type: 0x6
+
+//Name: r_hudOutlineWidth
+//Type: 0x1
+
+//Name: r_hudOutlineAlpha0
+//Type: 0x1
+
+//Name: r_hudOutlineAlpha1
+//Type: 0x1
+
+//Name: r_hudOutlineHaloWhen
+//Type: 0x6
+
+//Name: r_hudOutlineHaloBlurRadius
+//Type: 0x1
+
+//Name: r_hudOutlineHaloLumScale
+//Type: 0x1
+
+//Name: r_hudOutlineHaloDarkenScale
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyWhen
+//Type: 0x6
+
+//Name: r_hudOutlineCurvyBlurRadius
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyWidth
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyDepth
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyLumScale
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyDarkenScale
+//Type: 0x1
+
+//Name: r_useShadowGeomOpt
+//Type: 0x0
+
+//Name: r_fastModelPrimaryLightCheck
+//Type: 0x6
+
+//Name: r_fastModelPrimaryLightLink
+//Type: 0x0
+
+//Name: cg_brass
+//Type: 0x0
+
+//Name: fx_marks
+//Type: 0x0
+
+//Name: ui_gametype
+//Type: 0x7
+
+//Name: ui_mapname
+//Type: 0x7
+
+//Name: ui_borderLowLightScale
+//Type: 0x1
+
+//Name: ui_hud_hardcore
+//Type: 0x0
+
+//Name: ui_customModeName
+//Type: 0x7
+
+//Name: ui_customModeEditName
+//Type: 0x7
+
+//Name: ui_customClassName
+//Type: 0x7
+
+//Name: g_allowvote
+//Type: 0x0
+
+//Name: cg_brass
+//Type: 0x0
+
+//Name: fx_marks
+//Type: 0x0
+
+//Name: server1
+//Type: 0x7
+
+//Name: server2
+//Type: 0x7
+
+//Name: server3
+//Type: 0x7
+
+//Name: server4
+//Type: 0x7
+
+//Name: server5
+//Type: 0x7
+
+//Name: server6
+//Type: 0x7
+
+//Name: server7
+//Type: 0x7
+
+//Name: server8
+//Type: 0x7
+
+//Name: server9
+//Type: 0x7
+
+//Name: server10
+//Type: 0x7
+
+//Name: server11
+//Type: 0x7
+
+//Name: server12
+//Type: 0x7
+
+//Name: server13
+//Type: 0x7
+
+//Name: server14
+//Type: 0x7
+
+//Name: server15
+//Type: 0x7
+
+//Name: server16
+//Type: 0x7
+
+//Name: ui_netSource
+//Type: 0x5
+
+//Name: ui_smallFont
+//Type: 0x1
+
+//Name: ui_bigFont
+//Type: 0x1
+
+//Name: ui_extraBigFont
+//Type: 0x1
+
+//Name: ui_currentMap
+//Type: 0x5
+
+//Name: ui_gametype
+//Type: 0x7
+
+//Name: ui_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entrya_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entryb_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entrya_gametype
+//Type: 0x7
+
+//Name: ui_mapvote_entryb_gametype
+//Type: 0x7
+
+//Name: ui_onlineRequired
+//Type: 0x0
+
+//Name: ui_currentFeederMapIndex
+//Type: 0x5
+
+//Name: ui_selectedFeederMap
+//Type: 0x7
+
+//Name: ui_missingMapName
+//Type: 0x7
+
+//Name: ui_serverStatusTimeOut
+//Type: 0x5
+
+//Name: ui_buildLocation
+//Type: 0x2
+
+//Name: ui_buildSize
+//Type: 0x1
+
+//Name: ui_showList
+//Type: 0x0
+
+//Name: ui_showMenuOnly
+//Type: 0x7
+
+//Name: ui_playlistCategoryDisabledColor
+//Type: 0x8
+
+//Name: ui_playlistCategoryEnabledColor
+//Type: 0x8
+
+//Name: ui_playlistActionButtonAlpha
+//Type: 0x1
+
+//Name: ui_playerPartyColor
+//Type: 0x8
+
+//Name: ui_inactiveBaseColor
+//Type: 0x8
+
+//Name: ui_inactivePartyColor
+//Type: 0x8
+
+//Name: ui_myPartyColor
+//Type: 0x8
+
+//Name: lobby_searchingPartyColor
+//Type: 0x8
+
+//Name: ui_partyFull
+//Type: 0x0
+
+//Name: lobby_numAnimationFrames
+//Type: 0x5
+
+//Name: lobby_animationSpeed
+//Type: 0x5
+
+//Name: lobby_animationTilesWide
+//Type: 0x5
+
+//Name: lobby_animationTilesHigh
+//Type: 0x5
+
+//Name: ui_borderLowLightScale
+//Type: 0x1
+
+//Name: ui_cinematicsTimestamp
+//Type: 0x0
+
+//Name: ui_connectScreenTextGlowColor
+//Type: 0x4
+
+//Name: ui_drawCrosshair
+//Type: 0x0
+
+//Name: ui_debugMode
+//Type: 0x0
+
+//Name: ui_hud_hardcore
+//Type: 0x0
+
+//Name: ui_textScrollSpeed
+//Type: 0x1
+
+//Name: ui_textScrollPauseStart
+//Type: 0x1
+
+//Name: ui_textScrollPauseEnd
+//Type: 0x1
+
+//Name: ui_textScrollFadeTime
+//Type: 0x1
+
+//Name: ui_sliderSteps
+//Type: 0x1
+
+//Name: ui_showDLCMaps
+//Type: 0x0
+
+//Name: ui_multiplayer
+//Type: 0x0
+
+//Name: uiscript_debug
+//Type: 0x5
+
+//Name: g_gametype
+//Type: 0x7
+
+//Name: g_hardcore
+//Type: 0x0
+
+//Name: r_sunsprite_shader
+//Type: 0x7
+
+//Name: r_sunsprite_size
+//Type: 0x1
+
+//Name: r_sunflare_shader
+//Type: 0x7
+
+//Name: r_sunflare_min_size
+//Type: 0x1
+
+//Name: r_sunflare_min_angle
+//Type: 0x1
+
+//Name: r_sunflare_max_size
+//Type: 0x1
+
+//Name: r_sunflare_max_angle
+//Type: 0x1
+
+//Name: r_sunflare_max_alpha
+//Type: 0x1
+
+//Name: r_sunflare_fadein
+//Type: 0x1
+
+//Name: r_sunflare_fadeout
+//Type: 0x1
+
+//Name: r_sunblind_min_angle
+//Type: 0x1
+
+//Name: r_sunblind_max_angle
+//Type: 0x1
+
+//Name: r_sunblind_max_darken
+//Type: 0x1
+
+//Name: r_sunblind_fadein
+//Type: 0x1
+
+//Name: r_sunblind_fadeout
+//Type: 0x1
+
+//Name: r_sunglare_min_angle
+//Type: 0x1
+
+//Name: r_sunglare_max_angle
+//Type: 0x1
+
+//Name: r_sunglare_max_lighten
+//Type: 0x1
+
+//Name: r_sunglare_fadein
+//Type: 0x1
+
+//Name: r_sunglare_fadeout
+//Type: 0x1
+
+//Name: r_sun_fx_position
+//Type: 0x3
+
+//Name: r_ignore
+//Type: 0x5
+
+//Name: r_ignoref
+//Type: 0x1
+
+//Name: r_gamma
+//Type: 0x1
+
+//Name: r_ignorehwgamma
+//Type: 0x0
+
+//Name: r_blacklevel
+//Type: 0x1
+
+//Name: r_texFilterAnisoMax
+//Type: 0x5
+
+//Name: r_texFilterDisable
+//Type: 0x0
+
+//Name: r_texFilterAnisoMin
+//Type: 0x5
+
+//Name: r_texFilterMipMode
+//Type: 0x6
+
+//Name: r_texShowMipMode
+//Type: 0x6
+
+//Name: r_texFilterMipBias
+//Type: 0x1
+
+//Name: r_texFilterProbeBilinear
+//Type: 0x0
+
+//Name: r_subwindow
+//Type: 0x4
+
+//Name: r_znear
+//Type: 0x1
+
+//Name: r_zfar
+//Type: 0x1
+
+//Name: r_fog
+//Type: 0x0
+
+//Name: r_fog_depthhack_scale
+//Type: 0x1
+
+//Name: r_polygonOffsetScale
+//Type: 0x1
+
+//Name: r_polygonOffsetBias
+//Type: 0x1
+
+//Name: r_artUseTweaks
+//Type: 0x0
+
+//Name: r_skyFogUseTweaks
+//Type: 0x0
+
+//Name: r_sky_fog_min_angle
+//Type: 0x1
+
+//Name: r_sky_fog_max_angle
+//Type: 0x1
+
+//Name: r_sky_fog_intensity
+//Type: 0x1
+
+//Name: r_lightMap
+//Type: 0x6
+
+//Name: r_colorMap
+//Type: 0x6
+
+//Name: r_detailMap
+//Type: 0x6
+
+//Name: r_displacementMap
+//Type: 0x6
+
+//Name: r_normalMap
+//Type: 0x6
+
+//Name: r_specularMap
+//Type: 0x6
+
+//Name: r_primaryLightUseTweaks
+//Type: 0x0
+
+//Name: r_primaryLightTweakDiffuseStrength
+//Type: 0x1
+
+//Name: r_primaryLightTweakSpecularStrength
+//Type: 0x1
+
+//Name: r_charLightAmbient
+//Type: 0x9
+
+//Name: r_primaryLightUseTweaks_NG
+//Type: 0x0
+
+//Name: r_primaryLightTweakDiffuseStrength_NG
+//Type: 0x1
+
+//Name: r_primaryLightTweakSpecularStrength_NG
+//Type: 0x1
+
+//Name: r_charLightAmbient_NG
+//Type: 0x9
+
+//Name: r_viewModelPrimaryLightUseTweaks
+//Type: 0x0
+
+//Name: r_viewModelPrimaryLightTweakDiffuseStrength
+//Type: 0x1
+
+//Name: r_viewModelPrimaryLightTweakSpecularStrength
+//Type: 0x1
+
+//Name: r_viewModelLightAmbient
+//Type: 0x9
+
+//Name: r_viewModelPrimaryLightUseTweaks_NG
+//Type: 0x0
+
+//Name: r_viewModelPrimaryLightTweakDiffuseStrength_NG
+//Type: 0x1
+
+//Name: r_viewModelPrimaryLightTweakSpecularStrength_NG
+//Type: 0x1
+
+//Name: r_viewModelLightAmbient_NG
+//Type: 0x9
+
+//Name: r_resampleScene
+//Type: 0x0
+
+//Name: r_debugLineWidth
+//Type: 0x1
+
+//Name: r_clampLodScale
+//Type: 0x1
+
+//Name: r_vc_makelog
+//Type: 0x5
+
+//Name: r_vc_showlog
+//Type: 0x5
+
+//Name: r_showLightGrid
+//Type: 0x5
+
+//Name: r_showMissingLightGrid
+//Type: 0x0
+
+//Name: r_showReflectionProbeSelection
+//Type: 0x6
+
+//Name: r_cacheSModelLighting
+//Type: 0x0
+
+//Name: r_cacheModelLighting
+//Type: 0x0
+
+//Name: r_lightGridUseTweakedValues
+//Type: 0x0
+
+//Name: r_heroLighting
+//Type: 0x0
+
+//Name: r_lightCacheLessFrequentPeriod
+//Type: 0x5
+
+//Name: r_lightCacheLessFrequentMaxDistance
+//Type: 0x1
+
+//Name: r_showModelLightingLowWaterMark
+//Type: 0x0
+
+//Name: r_envMapOverride
+//Type: 0x0
+
+//Name: r_envMapMinIntensity
+//Type: 0x1
+
+//Name: r_envMapMaxIntensity
+//Type: 0x1
+
+//Name: r_envMapExponent
+//Type: 0x1
+
+//Name: r_envMapSunIntensity
+//Type: 0x1
+
+//Name: r_flushAfterExecute
+//Type: 0x0
+
+//Name: r_scaleViewport
+//Type: 0x1
+
+//Name: r_smp_backend
+//Type: 0x0
+
+//Name: r_smp_worker
+//Type: 0x0
+
+//Name: r_smp_worker_thread0
+//Type: 0x0
+
+//Name: r_smp_worker_thread1
+//Type: 0x0
+
+//Name: r_smp_worker_thread2
+//Type: 0x0
+
+//Name: r_cmdbuf_worker
+//Type: 0x0
+
+//Name: r_cmdbuf_handoff
+//Type: 0x0
+
+//Name: r_vsync
+//Type: 0x0
+
+//Name: r_clear
+//Type: 0x6
+
+//Name: r_clearColor
+//Type: 0x8
+
+//Name: r_clearColor2
+//Type: 0x8
+
+//Name: r_dlightLimit
+//Type: 0x5
+
+//Name: r_spotLightShadows
+//Type: 0x0
+
+//Name: r_spotLightEntityShadows
+//Type: 0x0
+
+//Name: r_drawWater
+//Type: 0x0
+
+//Name: r_lockPvs
+//Type: 0x0
+
+//Name: r_skipPvs
+//Type: 0x0
+
+//Name: r_portalBevels
+//Type: 0x1
+
+//Name: r_portalBevelsOnly
+//Type: 0x0
+
+//Name: r_singleCell
+//Type: 0x0
+
+//Name: r_portalWalkLimit
+//Type: 0x5
+
+//Name: r_portalMinClipArea
+//Type: 0x1
+
+//Name: r_portalMinRecurseDepth
+//Type: 0x5
+
+//Name: r_showFloatZDebug
+//Type: 0x5
+
+//Name: r_showFbColorDebug
+//Type: 0x6
+
+//Name: r_depthPrepass
+//Type: 0x6
+
+//Name: r_highLodDist
+//Type: 0x1
+
+//Name: r_mediumLodDist
+//Type: 0x1
+
+//Name: r_lowLodDist
+//Type: 0x1
+
+//Name: r_lowestLodDist
+//Type: 0x1
+
+//Name: r_forceLod
+//Type: 0x6
+
+//Name: sm_enable
+//Type: 0x0
+
+//Name: sm_sunEnable
+//Type: 0x0
+
+//Name: sm_spotEnable
+//Type: 0x0
+
+//Name: sm_spotLimit
+//Type: 0x5
+
+//Name: sm_maxLightsWithShadows
+//Type: 0x5
+
+//Name: sm_minSpotLightScore
+//Type: 0x1
+
+//Name: sm_spotShadowFadeTime
+//Type: 0x1
+
+//Name: sm_dynlightAllSModels
+//Type: 0x0
+
+//Name: sm_lightScore_eyeProjectDist
+//Type: 0x1
+
+//Name: sm_lightScore_spotProjectFrac
+//Type: 0x1
+
+//Name: sm_cameraOffset
+//Type: 0x1
+
+//Name: sm_polygonOffsetScale
+//Type: 0x1
+
+//Name: sm_polygonOffsetBias
+//Type: 0x1
+
+//Name: sm_sunShadowCenter
+//Type: 0x3
+
+//Name: sm_sunShadowCenterMode
+//Type: 0x0
+
+//Name: sm_strictCull
+//Type: 0x0
+
+//Name: sm_spotDistCull
+//Type: 0x0
+
+//Name: sm_fastSunShadow
+//Type: 0x0
+
+//Name: sm_qualitySpotShadow
+//Type: 0x0
+
+//Name: r_screenFilterQuads
+//Type: 0x5
+
+//Name: r_blur
+//Type: 0x1
+
+//Name: r_distortion
+//Type: 0x0
+
+//Name: r_globalGenericMaterialScale
+//Type: 0x1
+
+//Name: r_glow_allowed_script_forced
+//Type: 0x0
+
+//Name: r_glow_allowed
+//Type: 0x0
+
+//Name: r_glow
+//Type: 0x0
+
+//Name: r_glowUseTweaks
+//Type: 0x0
+
+//Name: r_glowTweakEnable
+//Type: 0x0
+
+//Name: r_glowTweakUseAltCutoff
+//Type: 0x0
+
+//Name: r_glowTweakAltColorScaleR
+//Type: 0x1
+
+//Name: r_glowTweakAltColorScaleG
+//Type: 0x1
+
+//Name: r_glowTweakAltColorScaleB
+//Type: 0x1
+
+//Name: r_glowTweakAltCutoff
+//Type: 0x1
+
+//Name: r_glowTweakRadius0
+//Type: 0x1
+
+//Name: r_glowTweakBloomIntensity0
+//Type: 0x1
+
+//Name: r_glowTweakBloomCutoff
+//Type: 0x1
+
+//Name: r_glowTweakBloomDesaturation
+//Type: 0x1
+
+//Name: r_glowTweakBloomPinch
+//Type: 0x1
+
+//Name: r_filmUseTweaks
+//Type: 0x0
+
+//Name: r_filmAltShader
+//Type: 0x0
+
+//Name: r_filmTweakEnable
+//Type: 0x0
+
+//Name: r_filmTweakContrast
+//Type: 0x1
+
+//Name: r_contrast
+//Type: 0x1
+
+//Name: r_brightness
+//Type: 0x1
+
+//Name: r_desaturation
+//Type: 0x1
+
+//Name: r_filmTweakBrightness
+//Type: 0x1
+
+//Name: r_filmTweakDesaturation
+//Type: 0x1
+
+//Name: r_filmTweakDesaturationDark
+//Type: 0x1
+
+//Name: r_filmTweakInvert
+//Type: 0x0
+
+//Name: r_filmTweakDarkTint
+//Type: 0x9
+
+//Name: r_filmTweakMediumTint
+//Type: 0x9
+
+//Name: r_filmTweakLightTint
+//Type: 0x9
+
+//Name: r_dof_enable
+//Type: 0x0
+
+//Name: r_dof_tweak
+//Type: 0x6
+
+//Name: r_dof_nearBlur
+//Type: 0x1
+
+//Name: r_dof_farBlur
+//Type: 0x1
+
+//Name: r_dof_viewModelStart
+//Type: 0x1
+
+//Name: r_dof_viewModelEnd
+//Type: 0x1
+
+//Name: r_dof_nearStart
+//Type: 0x1
+
+//Name: r_dof_nearEnd
+//Type: 0x1
+
+//Name: r_dof_farStart
+//Type: 0x1
+
+//Name: r_dof_farEnd
+//Type: 0x1
+
+//Name: r_dof_bias
+//Type: 0x1
+
+//Name: r_cc_toneBias1
+//Type: 0x3
+
+//Name: r_cc_contrastScale1
+//Type: 0x3
+
+//Name: r_cc_contrastPow1
+//Type: 0x3
+
+//Name: r_cc_desaturation1
+//Type: 0x1
+
+//Name: r_cc_toneBias2
+//Type: 0x3
+
+//Name: r_cc_contrastScale2
+//Type: 0x3
+
+//Name: r_cc_contrastPow2
+//Type: 0x3
+
+//Name: r_cc_desaturation2
+//Type: 0x1
+
+//Name: r_cc_lerp1
+//Type: 0x1
+
+//Name: r_cc_lerp2
+//Type: 0x1
+
+//Name: r_cc_mode
+//Type: 0x6
+
+//Name: r_pixelShaderGPRReallocation
+//Type: 0x5
+
+//Name: r_showPIPTexture
+//Type: 0x0
+
+//Name: r_showBlurSceneScissor
+//Type: 0x0
+
+//Name: r_showCharacterSceneTexture
+//Type: 0x0
+
+//Name: r_showBlurScene
+//Type: 0x0
+
+//Name: r_outdoorFeather
+//Type: 0x1
+
+//Name: r_sun_from_dvars
+//Type: 0x0
+
+//Name: r_atlasAnimFPS
+//Type: 0x5
+
+//Name: developer
+//Type: 0x5
+
+//Name: r_thermalColorScale
+//Type: 0x1
+
+//Name: r_thermalColorOffset
+//Type: 0x1
+
+//Name: r_thermalDetailScale
+//Type: 0x1
+
+//Name: r_thermalFadeControl
+//Type: 0x6
+
+//Name: r_thermalFadeColor
+//Type: 0x8
+
+//Name: r_thermalFadeMin
+//Type: 0x1
+
+//Name: r_thermalFadeMax
+//Type: 0x1
+
+//Name: fx_enable
+//Type: 0x0
+
+//Name: fx_draw
+//Type: 0x0
+
+//Name: fx_draw_spotLight
+//Type: 0x0
+
+//Name: fx_draw_omniLight
+//Type: 0x0
+
+//Name: fx_cull_elem_spawn
+//Type: 0x0
+
+//Name: fx_cull_elem_draw
+//Type: 0x0
+
+//Name: fx_marks
+//Type: 0x0
+
+//Name: fx_marks_smodels
+//Type: 0x0
+
+//Name: fx_marks_ents
+//Type: 0x0
+
+//Name: fx_marks_nearlimit
+//Type: 0x5
+
+//Name: fx_freeze
+//Type: 0x0
+
+//Name: fx_debugBolt
+//Type: 0x1
+
+//Name: fx_count
+//Type: 0x0
+
+//Name: fx_visMinTraceDist
+//Type: 0x1
+
+//Name: fx_profileSort
+//Type: 0x6
+
+//Name: fx_profileSkip
+//Type: 0x5
+
+//Name: fx_profileFilter
+//Type: 0x7
+
+//Name: fx_profileFilterElemCountZero
+//Type: 0x0
+
+//Name: fx_profile
+//Type: 0x5
+
+//Name: fx_mark_profile
+//Type: 0x5
+
+//Name: fx_drawClouds
+//Type: 0x0
+
+//Name: fx_deferelem
+//Type: 0x0
+
+//Name: fx_draw_simd
+//Type: 0x0
+
+//Name: fx_killEffectOnRewind
+//Type: 0x0
+
+//Name: fx_alphaThreshold
+//Type: 0x5
+
+//Name: glass_break
+//Type: 0x0
+
+//Name: glass_edge_angle
+//Type: 0x2
+
+//Name: glass_fall_ratio
+//Type: 0x2
+
+//Name: glass_fall_delay
+//Type: 0x2
+
+//Name: glass_fx_chance
+//Type: 0x1
+
+//Name: glass_hinge_friction
+//Type: 0x1
+
+//Name: glass_max_pieces_per_frame
+//Type: 0x5
+
+//Name: glass_max_shatter_fx_per_frame
+//Type: 0x5
+
+//Name: glass_shard_maxsize
+//Type: 0x1
+
+//Name: glass_fringe_maxsize
+//Type: 0x1
+
+//Name: glass_fringe_maxcoverage
+//Type: 0x1
+
+//Name: glass_trace_interval
+//Type: 0x5
+
+//Name: glass_physics_chance
+//Type: 0x1
+
+//Name: glass_physics_maxdist
+//Type: 0x1
+
+//Name: glass_shattered_scale
+//Type: 0x1
+
+//Name: glass_crack_pattern_scale
+//Type: 0x1
+
+//Name: glass_fall_gravity
+//Type: 0x1
+
+//Name: glass_linear_vel
+//Type: 0x2
+
+//Name: glass_angular_vel
+//Type: 0x2
+
+//Name: r_rimLight0Pitch
+//Type: 0x1
+
+//Name: r_rimLight0Heading
+//Type: 0x1
+
+//Name: r_rimLight0Color
+//Type: 0x9
+
+//Name: r_rimLightDiffuseIntensity
+//Type: 0x1
+
+//Name: r_rimLightSpecIntensity
+//Type: 0x1
+
+//Name: r_rimLightBias
+//Type: 0x1
+
+//Name: r_rimLightPower
+//Type: 0x1
+
+//Name: r_rimLightUseTweaks
+//Type: 0x0
+
+//Name: r_ssrPositionCorrection
+//Type: 0x1
+
+//Name: r_ssrFadeInDuration
+//Type: 0x1
+
+//Name: r_hudOutlineEnable
+//Type: 0x0
+
+//Name: r_hudOutlinePostMode
+//Type: 0x6
+
+//Name: r_hudOutlineWhen
+//Type: 0x6
+
+//Name: r_hudOutlineWidth
+//Type: 0x1
+
+//Name: r_hudOutlineAlpha0
+//Type: 0x1
+
+//Name: r_hudOutlineAlpha1
+//Type: 0x1
+
+//Name: r_hudOutlineHaloWhen
+//Type: 0x6
+
+//Name: r_hudOutlineHaloBlurRadius
+//Type: 0x1
+
+//Name: r_hudOutlineHaloLumScale
+//Type: 0x1
+
+//Name: r_hudOutlineHaloDarkenScale
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyWhen
+//Type: 0x6
+
+//Name: r_hudOutlineCurvyBlurRadius
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyWidth
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyDepth
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyLumScale
+//Type: 0x1
+
+//Name: r_hudOutlineCurvyDarkenScale
+//Type: 0x1
+
+//Name: r_useShadowGeomOpt
+//Type: 0x0
+
+//Name: r_fastModelPrimaryLightCheck
+//Type: 0x6
+
+//Name: r_fastModelPrimaryLightLink
+//Type: 0x0
+
+//Name: ui_customModeName
+//Type: 0x7
+
+//Name: ui_customModeEditName
+//Type: 0x7
+
+//Name: ui_customClassName
+//Type: 0x7
+
+//Name: g_allowvote
+//Type: 0x0
+
+//Name: cg_brass
+//Type: 0x0
+
+//Name: fx_marks
+//Type: 0x0
+
+//Name: server1
+//Type: 0x7
+
+//Name: server2
+//Type: 0x7
+
+//Name: server3
+//Type: 0x7
+
+//Name: server4
+//Type: 0x7
+
+//Name: server5
+//Type: 0x7
+
+//Name: server6
+//Type: 0x7
+
+//Name: server7
+//Type: 0x7
+
+//Name: server8
+//Type: 0x7
+
+//Name: server9
+//Type: 0x7
+
+//Name: server10
+//Type: 0x7
+
+//Name: server11
+//Type: 0x7
+
+//Name: server12
+//Type: 0x7
+
+//Name: server13
+//Type: 0x7
+
+//Name: server14
+//Type: 0x7
+
+//Name: server15
+//Type: 0x7
+
+//Name: server16
+//Type: 0x7
+
+//Name: ui_netSource
+//Type: 0x5
+
+//Name: ui_smallFont
+//Type: 0x1
+
+//Name: ui_bigFont
+//Type: 0x1
+
+//Name: ui_extraBigFont
+//Type: 0x1
+
+//Name: ui_currentMap
+//Type: 0x5
+
+//Name: ui_gametype
+//Type: 0x7
+
+//Name: ui_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entrya_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entryb_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entrya_gametype
+//Type: 0x7
+
+//Name: ui_mapvote_entryb_gametype
+//Type: 0x7
+
+//Name: ui_onlineRequired
+//Type: 0x0
+
+//Name: ui_currentFeederMapIndex
+//Type: 0x5
+
+//Name: ui_selectedFeederMap
+//Type: 0x7
+
+//Name: ui_missingMapName
+//Type: 0x7
+
+//Name: ui_serverStatusTimeOut
+//Type: 0x5
+
+//Name: ui_buildLocation
+//Type: 0x2
+
+//Name: ui_buildSize
+//Type: 0x1
+
+//Name: ui_showList
+//Type: 0x0
+
+//Name: ui_showMenuOnly
+//Type: 0x7
+
+//Name: ui_playlistCategoryDisabledColor
+//Type: 0x8
+
+//Name: ui_playlistCategoryEnabledColor
+//Type: 0x8
+
+//Name: ui_playlistActionButtonAlpha
+//Type: 0x1
+
+//Name: ui_playerPartyColor
+//Type: 0x8
+
+//Name: ui_inactiveBaseColor
+//Type: 0x8
+
+//Name: ui_inactivePartyColor
+//Type: 0x8
+
+//Name: ui_myPartyColor
+//Type: 0x8
+
+//Name: lobby_searchingPartyColor
+//Type: 0x8
+
+//Name: ui_partyFull
+//Type: 0x0
+
+//Name: lobby_numAnimationFrames
+//Type: 0x5
+
+//Name: lobby_animationSpeed
+//Type: 0x5
+
+//Name: lobby_animationTilesWide
+//Type: 0x5
+
+//Name: lobby_animationTilesHigh
+//Type: 0x5
+
+//Name: ui_borderLowLightScale
+//Type: 0x1
+
+//Name: ui_cinematicsTimestamp
+//Type: 0x0
+
+//Name: ui_connectScreenTextGlowColor
+//Type: 0x4
+
+//Name: ui_drawCrosshair
+//Type: 0x0
+
+//Name: ui_debugMode
+//Type: 0x0
+
+//Name: ui_hud_hardcore
+//Type: 0x0
+
+//Name: ui_textScrollSpeed
+//Type: 0x1
+
+//Name: ui_textScrollPauseStart
+//Type: 0x1
+
+//Name: ui_textScrollPauseEnd
+//Type: 0x1
+
+//Name: ui_textScrollFadeTime
+//Type: 0x1
+
+//Name: ui_sliderSteps
+//Type: 0x1
+
+//Name: ui_showDLCMaps
+//Type: 0x0
+
+//Name: ui_multiplayer
+//Type: 0x0
+
+//Name: uiscript_debug
+//Type: 0x5
+
+//Name: ui_customModeName
+//Type: 0x7
+
+//Name: ui_customModeEditName
+//Type: 0x7
+
+//Name: ui_customClassName
+//Type: 0x7
+
+//Name: g_allowvote
+//Type: 0x0
+
+//Name: cg_brass
+//Type: 0x0
+
+//Name: fx_marks
+//Type: 0x0
+
+//Name: server1
+//Type: 0x7
+
+//Name: server2
+//Type: 0x7
+
+//Name: server3
+//Type: 0x7
+
+//Name: server4
+//Type: 0x7
+
+//Name: server5
+//Type: 0x7
+
+//Name: server6
+//Type: 0x7
+
+//Name: server7
+//Type: 0x7
+
+//Name: server8
+//Type: 0x7
+
+//Name: server9
+//Type: 0x7
+
+//Name: server10
+//Type: 0x7
+
+//Name: server11
+//Type: 0x7
+
+//Name: server12
+//Type: 0x7
+
+//Name: server13
+//Type: 0x7
+
+//Name: server14
+//Type: 0x7
+
+//Name: server15
+//Type: 0x7
+
+//Name: server16
+//Type: 0x7
+
+//Name: ui_netSource
+//Type: 0x5
+
+//Name: ui_smallFont
+//Type: 0x1
+
+//Name: ui_bigFont
+//Type: 0x1
+
+//Name: ui_extraBigFont
+//Type: 0x1
+
+//Name: ui_currentMap
+//Type: 0x5
+
+//Name: ui_gametype
+//Type: 0x7
+
+//Name: ui_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entrya_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entryb_mapname
+//Type: 0x7
+
+//Name: ui_mapvote_entrya_gametype
+//Type: 0x7
+
+//Name: ui_mapvote_entryb_gametype
+//Type: 0x7
+
+//Name: ui_onlineRequired
+//Type: 0x0
+
+//Name: ui_currentFeederMapIndex
+//Type: 0x5
+
+//Name: ui_selectedFeederMap
+//Type: 0x7
+
+//Name: ui_missingMapName
+//Type: 0x7
+
+//Name: ui_serverStatusTimeOut
+//Type: 0x5
+
+//Name: ui_buildLocation
+//Type: 0x2
+
+//Name: ui_buildSize
+//Type: 0x1
+
+//Name: ui_showList
+//Type: 0x0
+
+//Name: ui_showMenuOnly
+//Type: 0x7
+
+//Name: ui_playlistCategoryDisabledColor
+//Type: 0x8
+
+//Name: ui_playlistCategoryEnabledColor
+//Type: 0x8
+
+//Name: ui_playlistActionButtonAlpha
+//Type: 0x1
+
+//Name: ui_playerPartyColor
+//Type: 0x8
+
+//Name: ui_inactiveBaseColor
+//Type: 0x8
+
+//Name: ui_inactivePartyColor
+//Type: 0x8
+
+//Name: ui_myPartyColor
+//Type: 0x8
+
+//Name: lobby_searchingPartyColor
+//Type: 0x8
+
+//Name: ui_partyFull
+//Type: 0x0
+
+//Name: lobby_numAnimationFrames
+//Type: 0x5
+
+//Name: lobby_animationSpeed
+//Type: 0x5
+
+//Name: lobby_animationTilesWide
+//Type: 0x5
+
+//Name: lobby_animationTilesHigh
+//Type: 0x5
+
+//Name: ui_borderLowLightScale
+//Type: 0x1
+
+//Name: ui_cinematicsTimestamp
+//Type: 0x0
+
+//Name: ui_connectScreenTextGlowColor
+//Type: 0x4
+
+//Name: ui_drawCrosshair
+//Type: 0x0
+
+//Name: ui_debugMode
+//Type: 0x0
+
+//Name: ui_hud_hardcore
+//Type: 0x0
+
+//Name: ui_textScrollSpeed
+//Type: 0x1
+
+//Name: ui_textScrollPauseStart
+//Type: 0x1
+
+//Name: ui_textScrollPauseEnd
+//Type: 0x1
+
+//Name: ui_textScrollFadeTime
+//Type: 0x1
+
+//Name: ui_sliderSteps
+//Type: 0x1
+
+//Name: ui_showDLCMaps
+//Type: 0x0
+
+//Name: ui_multiplayer
+//Type: 0x0
+
+//Name: uiscript_debug
+//Type: 0x5
+
+//Name: LUI_WorkerCmdGC
+//Type: 0x5
+
+//Name: LUI_MemErrorsFatal
+//Type: 0x0
+
+//Name: sv_maxclients
+//Type: 0x5
+
+//Name: g_gametype
+//Type: 0x7
+
+//Name: g_hardcore
+//Type: 0x0
+
+//Name: sv_maxclients
+//Type: 0x5
+
+//Name: g_allowVote
+//Type: 0x0
+
+//Name: scr_team_fftype
+//Type: 0x5
+
+//Name: scr_game_allowkillcam
+//Type: 0x5
+
+//Name: vehHelicopterMaxYawRate
+//Type: 0x1
+
+//Name: cSplineDebugRender
+//Type: 0x0
+
+//Name: cSplineDebugRenderData
+//Type: 0x0
+
+//Name: cSplineDebugRenderCorridor
+//Type: 0x0
+
+//Name: cSplineDebugRenderSplineId
+//Type: 0x5
+
+//Name: bg_swingSpeed
+//Type: 0x1
+
+//Name: bg_idleSwingSpeed
+//Type: 0x1
+
+//Name: bg_torsoSwingSpeed
+//Type: 0x1
+
+//Name: bg_bulletExplDmgFactor
+//Type: 0x1
+
+//Name: bg_bulletExplRadius
+//Type: 0x1
+
+//Name: player_breath_snd_lerp
+//Type: 0x1
+
+//Name: player_breath_snd_delay
+//Type: 0x1
+
+//Name: bg_shock_soundLoop
+//Type: 0x7
+
+//Name: bg_shock_soundLoopSilent
+//Type: 0x7
+
+//Name: bg_shock_soundEnd
+//Type: 0x7
+
+//Name: bg_shock_soundEndAbort
+//Type: 0x7
+
+//Name: bg_shock_screenType
+//Type: 0x6
+
+//Name: bg_shock_screenBlurBlendTime
+//Type: 0x1
+
+//Name: bg_shock_screenBlurBlendFadeTime
+//Type: 0x1
+
+//Name: bg_shock_screenFlashWhiteFadeTime
+//Type: 0x1
+
+//Name: bg_shock_screenFlashShotFadeTime
+//Type: 0x1
+
+//Name: bg_shock_viewKickPeriod
+//Type: 0x1
+
+//Name: bg_shock_viewKickRadius
+//Type: 0x1
+
+//Name: bg_shock_viewKickFadeTime
+//Type: 0x1
+
+//Name: bg_shock_sound
+//Type: 0x0
+
+//Name: bg_shock_soundFadeInTime
+//Type: 0x1
+
+//Name: bg_shock_soundFadeOutTime
+//Type: 0x1
+
+//Name: bg_shock_soundLoopFadeTime
+//Type: 0x1
+
+//Name: bg_shock_soundLoopEndDelay
+//Type: 0x1
+
+//Name: bg_shock_soundRoomType
+//Type: 0x6
+
+//Name: bg_shock_soundDryLevel
+//Type: 0x1
+
+//Name: bg_shock_soundWetLevel
+//Type: 0x1
+
+//Name: bg_shock_soundModEndDelay
+//Type: 0x1
+
+//Name: bg_shock_volume_physics
+//Type: 0x1
+
+//Name: bg_shock_volume_ambdist1
+//Type: 0x1
+
+//Name: bg_shock_volume_ambdist2
+//Type: 0x1
+
+//Name: bg_shock_volume_alarm
+//Type: 0x1
+
+//Name: bg_shock_volume_auto
+//Type: 0x1
+
+//Name: bg_shock_volume_auto2
+//Type: 0x1
+
+//Name: bg_shock_volume_auto2d
+//Type: 0x1
+
+//Name: bg_shock_volume_autodog
+//Type: 0x1
+
+//Name: bg_shock_volume_explosiondist1
+//Type: 0x1
+
+//Name: bg_shock_volume_explosiondist2
+//Type: 0x1
+
+//Name: bg_shock_volume_explosiveimpact
+//Type: 0x1
+
+//Name: bg_shock_volume_element
+//Type: 0x1
+
+//Name: bg_shock_volume_element_int
+//Type: 0x1
+
+//Name: bg_shock_volume_element_ext
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_plr_mvmt
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_plr_weap
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_npc_mvmt
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_npc_weap
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_dog_mvmt
+//Type: 0x1
+
+//Name: bg_shock_volume_element_lim
+//Type: 0x1
+
+//Name: bg_shock_volume_element2d
+//Type: 0x1
+
+//Name: bg_shock_volume_voice_dog_dist
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletflesh1npc_npc
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletflesh2npc_npc
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletimpact
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletflesh1npc
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletflesh2npc
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletflesh1
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletflesh2
+//Type: 0x1
+
+//Name: bg_shock_volume_vehicle
+//Type: 0x1
+
+//Name: bg_shock_volume_vehiclelimited
+//Type: 0x1
+
+//Name: bg_shock_volume_menu
+//Type: 0x1
+
+//Name: bg_shock_volume_menulim1
+//Type: 0x1
+
+//Name: bg_shock_volume_menulim2
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletwhizbyin
+//Type: 0x1
+
+//Name: bg_shock_volume_bulletwhizbyout
+//Type: 0x1
+
+//Name: bg_shock_volume_body
+//Type: 0x1
+
+//Name: bg_shock_volume_body2d
+//Type: 0x1
+
+//Name: bg_shock_volume_reload
+//Type: 0x1
+
+//Name: bg_shock_volume_reload2d
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_plr_step
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_plr_step_unres
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_npc_step
+//Type: 0x1
+
+//Name: bg_shock_volume_foley_dog_step
+//Type: 0x1
+
+//Name: bg_shock_volume_item
+//Type: 0x1
+
+//Name: bg_shock_volume_weapon_drone
+//Type: 0x1
+
+//Name: bg_shock_volume_explosion1
+//Type: 0x1
+
+//Name: bg_shock_volume_explosion2
+//Type: 0x1
+
+//Name: bg_shock_volume_explosion3
+//Type: 0x1
+
+//Name: bg_shock_volume_explosion4
+//Type: 0x1
+
+//Name: bg_shock_volume_explosion5
+//Type: 0x1
+
+//Name: bg_shock_volume_effects1
+//Type: 0x1
+
+//Name: bg_shock_volume_effects2
+//Type: 0x1
+
+//Name: bg_shock_volume_effects3
+//Type: 0x1
+
+//Name: bg_shock_volume_effects2d1
+//Type: 0x1
+
+//Name: bg_shock_volume_effects2d2
+//Type: 0x1
+
+//Name: bg_shock_volume_norestrict
+//Type: 0x1
+
+//Name: bg_shock_volume_norestrict2d
+//Type: 0x1
+
+//Name: bg_shock_volume_aircraft
+//Type: 0x1
+
+//Name: bg_shock_volume_vehicle2d
+//Type: 0x1
+
+//Name: bg_shock_volume_weapon_dist
+//Type: 0x1
+
+//Name: bg_shock_volume_weapon_mid
+//Type: 0x1
+
+//Name: bg_shock_volume_weapon
+//Type: 0x1
+
+//Name: bg_shock_volume_weapon2d
+//Type: 0x1
+
+//Name: bg_shock_volume_nonshock
+//Type: 0x1
+
+//Name: bg_shock_volume_nonshock2
+//Type: 0x1
+
+//Name: bg_shock_volume_effects2dlim
+//Type: 0x1
+
+//Name: bg_shock_volume_voice_dog
+//Type: 0x1
+
+//Name: bg_shock_volume_music_emitter
+//Type: 0x1
+
+//Name: bg_shock_volume_voice_dog_attack
+//Type: 0x1
+
+//Name: bg_shock_volume_voice
+//Type: 0x1
+
+//Name: bg_shock_volume_local
+//Type: 0x1
+
+//Name: bg_shock_volume_local2
+//Type: 0x1
+
+//Name: bg_shock_volume_local3
+//Type: 0x1
+
+//Name: bg_shock_volume_ambient
+//Type: 0x1
+
+//Name: bg_shock_volume_plr_weap_fire_2d
+//Type: 0x1
+
+//Name: bg_shock_volume_plr_weap_mech_2d
+//Type: 0x1
+
+//Name: bg_shock_volume_hurt
+//Type: 0x1
+
+//Name: bg_shock_volume_player1
+//Type: 0x1
+
+//Name: bg_shock_volume_player2
+//Type: 0x1
+
+//Name: bg_shock_volume_music
+//Type: 0x1
+
+//Name: bg_shock_volume_musicnopause
+//Type: 0x1
+
+//Name: bg_shock_volume_mission
+//Type: 0x1
+
+//Name: bg_shock_volume_missionfx
+//Type: 0x1
+
+//Name: bg_shock_volume_announcer
+//Type: 0x1
+
+//Name: bg_shock_volume_shellshock
+//Type: 0x1
+
+//Name: bg_shock_lookControl
+//Type: 0x0
+
+//Name: bg_shock_lookControl_maxpitchspeed
+//Type: 0x1
+
+//Name: bg_shock_lookControl_maxyawspeed
+//Type: 0x1
+
+//Name: bg_shock_lookControl_mousesensitivityscale
+//Type: 0x1
+
+//Name: bg_shock_lookControl_fadeTime
+//Type: 0x1
+
+//Name: bg_shock_movement
+//Type: 0x0
+
+//Name: useTagFlashSilenced
+//Type: 0x0
+
+//Name: bg_shieldHitEncodeWidthWorld
+//Type: 0x2
+
+//Name: bg_shieldHitEncodeHeightWorld
+//Type: 0x2
+
+//Name: bg_shieldHitEncodeWidthVM
+//Type: 0x2
+
+//Name: bg_shieldHitEncodeHeightVM
+//Type: 0x2
+
+//Name: missileRemoteSteerPitchRange
+//Type: 0x2
+
+//Name: missileRemoteSteerPitchRate
+//Type: 0x1
+
+//Name: missileRemoteSteerYawRate
+//Type: 0x1
+
+//Name: perk_weapSpreadMultiplier
+//Type: 0x1
+
+//Name: perk_weapReloadMultiplier
+//Type: 0x1
+
+//Name: perk_weapRateMultiplier
+//Type: 0x1
+
+//Name: perk_extraBreath
+//Type: 0x1
+
+//Name: perk_improvedExtraBreath
+//Type: 0x1
+
+//Name: perk_bulletPenetrationMultiplier
+//Type: 0x1
+
+//Name: perk_grenadeDeath
+//Type: 0x7
+
+//Name: perk_parabolicRadius
+//Type: 0x1
+
+//Name: perk_parabolicAngle
+//Type: 0x1
+
+//Name: perk_parabolicIcon
+//Type: 0x7
+
+//Name: perk_sprintMultiplier
+//Type: 0x1
+
+//Name: perk_extendedMagsRifleAmmo
+//Type: 0x5
+
+//Name: perk_extendedMagsRifleAmmo
+//Type: 0x5
+
+//Name: perk_extendedMagsMGAmmo
+//Type: 0x5
+
+//Name: perk_extendedMagsSMGAmmo
+//Type: 0x5
+
+//Name: perk_extendedMagsSpreadAmmo
+//Type: 0x5
+
+//Name: perk_extendedMagsPistolAmmo
+//Type: 0x5
+
+//Name: perk_lightWeightViewBobScale
+//Type: 0x1
+
+//Name: perk_quickDrawSpeedScale
+//Type: 0x1
+
+//Name: perk_fastSnipeScale
+//Type: 0x1
+
+//Name: perk_sprintRecoveryMultiplierActual
+//Type: 0x1
+
+//Name: perk_sprintRecoveryMultiplierVisual
+//Type: 0x1
+
+//Name: perk_footstepVolumePlayer
+//Type: 0x1
+
+//Name: perk_footstepVolumeAlly
+//Type: 0x1
+
+//Name: perk_footstepVolumeEnemy
+//Type: 0x1
+
+//Name: bg_underbarrelWeaponEnabled
+//Type: 0x0
+
+//Name: sentry_placement_debug
+//Type: 0x0
+
+//Name: sentry_placement_feet_offset
+//Type: 0x3
+
+//Name: sentry_placement_feet_trace_dist_z
+//Type: 0x1
+
+//Name: sentry_placement_trace_radius
+//Type: 0x1
+
+//Name: sentry_placement_trace_radius_canon_safety
+//Type: 0x1
+
+//Name: sentry_placement_trace_dist
+//Type: 0x1
+
+//Name: sentry_placement_trace_pitch
+//Type: 0x1
+
+//Name: sentry_placement_trace_min_normal
+//Type: 0x1
+
+//Name: scr_war_scorelimit
+//Type: 0x5
+
+//Name: scr_war_roundlimit
+//Type: 0x5
+
+//Name: mapname
+//Type: 0x7
+
+//Name: con_gameMsgWindow0Filter
+//Type: 0x7
+
+//Name: con_gameMsgWindow1Filter
+//Type: 0x7
+
+//Name: con_gameMsgWindow2Filter
+//Type: 0x7
+
+//Name: con_gameMsgWindow3Filter
+//Type: 0x7

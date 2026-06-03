@@ -57,13 +57,13 @@ Welcome to the CoD Research Repository! This repository contains research and do
 
 ## Cloning
 
-To clone a specific game's branch:
+All games now live in this single repository, one folder per title:
 
 ```bash
-git clone --branch COD5 https://github.com/primetime43/CoD-Research.git
+git clone https://github.com/primetime43/CoD-Research.git
 ```
 
-Replace `COD5` with the desired branch (COD4, COD5, COD6, etc.).
+Each game's documentation is in its own folder (`COD4`, `COD5`, `COD6`, etc.).
 
 ## Contributing
 
