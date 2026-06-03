@@ -100,6 +100,37 @@ When creating/rebuilding zone files, these values are **required** for the game 
 
 > **Note:** These are the minimum required values for patch zones containing rawfiles. Map zones and zones with other asset types may require different values.
 
+> **PC / Wii exception:** The fixed `BlockSizeTemp` values above are **console-only**.
+> **PC and Wii WaW compute `BlockSizeTemp` per zone** rather than using a constant
+> (PC WaW values observed across samples: 28, 264, 484, 2,656, 2,098,020). When editing,
+> preserve the original zone's value verbatim — there is no single magic constant.
+
+### Wii Zone Header (56 bytes)
+
+WaW **Wii** uses a larger header — it adds a `BlockSizeIndex` slot at `0x24`, so the
+`XAssetList` fields all shift down by 4 vs PS3/Xbox 360/PC. Values are **big-endian**
+(PowerPC):
+
+| Offset | Field |
+|--------|-------|
+| 0x08 | BlockSizeTemp |
+| 0x20 | BlockSizeVertex |
+| 0x24 | **BlockSizeIndex** (Wii only) |
+| 0x28 | ScriptStringCount |
+| 0x2C | ScriptStringsPtr (`FFFFFFFF`) |
+| 0x30 | AssetCount |
+| 0x34 | AssetsPtr (`FFFFFFFF`) |
+| 0x38 | Asset pool start |
+
+`ZoneSize @0x00 = actualZoneBytes − 40` on Wii (vs `−36` on the 52-byte platforms,
+because the header is 4 bytes larger).
+
+> **Wii uses the PC asset enum.** Despite being big-endian, WaW Wii type IDs follow the
+> **`CoD5AssetTypePC`** mapping (no `pixelshader`/`vertexshader` slots), *not* the PS3
+> enum — verified from a credits zone where the PC interpretation gives a coherent type
+> distribution (899 localize, 17 rawfile, …) while the PS3 enum gives nonsense. See
+> [AssetTypes.md](AssetTypes.md).
+
 ### XAssetList Structure (Asset Metadata)
 
 | Name              | Offset | Size | Type  | Description                                        |

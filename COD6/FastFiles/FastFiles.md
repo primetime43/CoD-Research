@@ -22,10 +22,14 @@ The FastFile header is **12 bytes** total:
 
 ### Magic Identifiers
 
-| Magic       | Hex Bytes                          | Description                |
-|-------------|------------------------------------|----------------------------|
-| `IWffu100`  | `49 57 66 66 75 31 30 30`          | Unsigned (PS3, PC)         |
-| `IWff0100`  | `49 57 66 66 30 31 30 30`          | Signed (Xbox 360)          |
+| Magic       | Hex Bytes                          | Description                                |
+|-------------|------------------------------------|--------------------------------------------|
+| `IWffu100`  | `49 57 66 66 75 31 30 30`          | Unsigned (PS3, unsigned Xbox 360, PC SP)   |
+| `IWff0100`  | `49 57 66 66 30 31 30 30`          | Signed (Xbox 360 MP **and** PC MP/patch)   |
+
+> **Note:** Unlike CoD4/WaW, the signed magic `IWff0100` is **not** exclusive to Xbox 360
+> on MW2 — PC retail multiplayer/patch FFs are also signed (Infinity Ward "authed chunks").
+> See [MW2 PC](#mw2-pc-format) below.
 
 ---
 
@@ -41,11 +45,17 @@ Version numbers identify the game/engine version. They're stored at offset 0x08 
 
 ### Platform Endianness
 
-| Platform       | Hex Bytes (Release 0x10D)         |
-|----------------|-----------------------------------|
-| PS3            | `00 00 01 0D` (Big Endian)        |
-| Xbox 360       | `00 00 01 0D` (Big Endian)        |
-| PC             | `0D 01 00 00` (Little Endian)     |
+Console builds use version `0x10D` (big-endian); PC uses a **different version**, `0x114`,
+stored **little-endian**:
+
+| Platform       | Version | Hex Bytes (as stored)             |
+|----------------|---------|-----------------------------------|
+| PS3            | 0x10D   | `00 00 01 0D` (Big Endian)        |
+| Xbox 360       | 0x10D   | `00 00 01 0D` (Big Endian)        |
+| PC             | 0x114   | `14 01 00 00` (Little Endian)     |
+
+> The version byte order is itself the quickest platform tell: console FFs read `00 00 ..`
+> first, PC FFs read the low byte (`14`) first.
 
 ---
 
@@ -153,9 +163,85 @@ Individual raw files within the zone CAN be compressed using **standard zlib** (
 
 **Note**: Not all raw files are compressed. Check the `compressedLen` field in the raw file header.
 
-### Signed Xbox 360 Files
+> **Important:** The two-level (block + per-file zlib) scheme above is **PS3-specific**.
+> MW2 Xbox 360 and MW2 PC do **not** use 64KB outer blocks — they use a single outer zlib
+> stream (unsigned) or authed chunks (signed). See the platform sections below.
 
-Signed Xbox 360 FastFiles have compressed data starting at a variable offset after the signature block. The compressed data is typically a single zlib stream rather than multiple blocks.
+---
+
+## Platform Compression Summary
+
+| Platform | Unsigned outer compression | Signed outer compression |
+|----------|----------------------------|--------------------------|
+| PS3      | 64KB blocks (raw deflate)  | — (PS3 retail is unsigned) |
+| Xbox 360 | Single zlib stream         | Authed chunks (IW4) |
+| PC       | Single zlib stream @ `0x15`| Authed chunks (IW4) |
+
+Inner per-rawfile zlib compression (the "zone-level" layer above) applies on **all**
+platforms — only the *outer* container differs.
+
+---
+
+## MW2 Xbox 360 Format
+
+- **Header:** 12-byte standard header + the full **25-byte extended header** (same
+  `DB_Header` as PS3).
+- **Unsigned** (`IWffu100`): a **single zlib stream** immediately after the 25-byte header
+  (not 64KB blocks).
+- **Signed** (`IWff0100`): Infinity Ward "authed chunks" beginning at `0x25` — the same
+  format as signed MW2 PC, just with the full 25-byte `DB_Header` instead of PC's 9-byte
+  preamble.
+- **Zone:** 48-byte header (drops `BlockSizeVertex`); asset IDs use the `MW2AssetTypeXbox360`
+  enum (no `vertexshader`, IDs ≥ `0x07` shift −1 from PS3). See [Zone.md](Zone.md).
+
+---
+
+## MW2 PC Format
+
+MW2 PC is **distinct from CoD4/WaW PC** and from MW2 console. It pairs MW2's
+compressed-rawfile model with a little-endian, PC-style zone.
+
+- **Version:** `0x114` stored little-endian (`14 01 00 00`).
+- **Preamble:** only **9 bytes** between the standard header and the stream
+  (`allowOnlineUpdate` (1) + `fileCreationTime` (8)) — *shorter* than the 25-byte
+  PS3/Xbox 360 extended header. There is no `region` / `entryCount` / `fileSize`.
+- **Zone header:** **56 bytes** (8 blockSize slots, asset table at `0x38`) — same geometry
+  as Wii WaW, but **little-endian**.
+- **Rawfile size fields** (`compressedLen`, `len`): **little-endian** (reading them BE
+  yields GB-scale nonsense).
+
+### Unsigned MW2 PC (SP/campaign)
+
+```
+00..07  IWffu100
+08..0B  14 01 00 00            version 0x114 (LE)
+0C      01                     allowOnlineUpdate
+0D..14  ........               fileCreationTime (8 bytes)
+15..EOF [single zlib stream]   starts with 78 DA / 78 9C / 78 5E / 78 01
+```
+
+Decompression simply feeds bytes from `0x15` to EOF into one zlib stream.
+
+### Signed MW2 PC (MP/patch) — Authed Chunks
+
+```
+00..07     IWff0100              signed magic
+08..0B     14 01 00 00           version 0x114 (LE)
+0C..14     preamble (9 bytes)    allowOnlineUpdate + fileCreationTime
+15..2024   DB_AuthHeader         8,144 bytes (IWffs100 + RSA-2048 sig + 244 SHA-256 hashes)
+2025..2054 48 bytes padding      pad to AUTHED_CHUNK_SIZE 0x2000
+2055..EOF  Authed chunks         groups of 257 × 0x2000-byte chunks
+```
+
+Each group is **257 chunks of 8KB**: chunk 0 is a hash table (256 × SHA-256, **skipped**
+for decompression), chunks 1–256 are zlib-stream payload. Concatenate the payload chunks
+across all groups and feed one zlib stream. The first data chunk lands at `0x4015`;
+subsequent groups at `0x4015 + N × 0x202000`.
+
+> **Save note:** Recompression always writes the **unsigned** PC layout (12-byte header +
+> 9-byte preamble + single zlib at `0x15`). Signed inputs round-trip to unsigned outputs —
+> re-signing the `DB_AuthHeader` requires Infinity Ward's RSA-2048 private key. Unsigned
+> FFs are a valid loadable variant (used for SP/campaign in retail).
 
 ---
 
@@ -219,8 +305,9 @@ Offset 0x0C-0x0F: Structure identifier = 01 01 CA 03 (dev) vs 01 01 CA EC (relea
 |------------------------------|------------|---------|---------------|
 | Release PS3                  | `IWffu100` | `0x10D` | Supported     |
 | Release Xbox 360 (Unsigned)  | `IWffu100` | `0x10D` | Supported     |
-| Release Xbox 360 (Signed)    | `IWff0100` | `0x10D` | Supported     |
-| Release PC                   | `IWffu100` | `0x114` | Supported     |
+| Release Xbox 360 (Signed)    | `IWff0100` | `0x10D` | Supported (authed chunks) |
+| Release PC SP (Unsigned)     | `IWffu100` | `0x114` | Supported     |
+| Release PC MP/Patch (Signed) | `IWff0100` | `0x114` | Supported (authed chunks) |
 | Dev Build (Unsigned)         | `IWffu100` | `0xFD`  | Supported     |
 | Dev Build (Signed)           | `IWff0100` | `0xFD`  | Not Supported |
 

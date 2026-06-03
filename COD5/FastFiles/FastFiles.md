@@ -47,9 +47,10 @@ Version numbers identify the game/engine version. They're stored at offset 0x08 
 | PS3            | 0x183   | `00 00 01 83` (Big Endian)    |
 | Xbox 360       | 0x183   | `00 00 01 83` (Big Endian)    |
 | PC             | 0x183   | `83 01 00 00` (Little Endian) |
-| Wii            | 0x19B   | -                             |
+| Wii            | 0x19B   | `00 00 01 9B` (Big Endian)    |
 
-> **Note:** Version bytes are always 4 bytes, but endianness depends on platform.
+> **Note:** Version bytes are always 4 bytes, but endianness depends on platform. Wii
+> shares the engine version family but uses a **different** version number (`0x19B`).
 
 ---
 
@@ -77,6 +78,32 @@ Each compressed block follows this format:
 - **Algorithm:** Zlib deflate (typical header bytes `0x78 0xDA` are stripped)
 - **PS3:** Zone data splits into 0x10000-byte blocks, each compressed independently
 - **Xbox 360:** Entire zone may be compressed as one unit, with signed files using 0x200000-byte XBlocks
+
+### Per-Platform Compression (Important)
+
+The 64KB-block scheme above is used by the **console** builds. **PC and Wii are
+different** — they use a **single continuous zlib stream** with no block length prefixes
+and no `00 01` terminator:
+
+| Platform | Outer compression | Endianness | Notes |
+|----------|-------------------|------------|-------|
+| PS3 | 64KB blocks (raw deflate, BE 2-byte lengths) | Big | `00 01` end marker |
+| Xbox 360 | 64KB blocks (raw deflate) | Big | Signed MP adds a signature block |
+| **PC** | **Single zlib stream** | **Little** | No blocks, no end marker — zlib starts at `0x0C` |
+| **Wii** | **Single zlib stream** | **Big** (PowerPC) | No blocks, no end marker — zlib starts at `0x0C` |
+
+**PC WaW** layout (verified byte-stable round-trip across retail samples):
+
+```
+00..07  IWffu100
+08..0B  83 01 00 00            version 0x183 (LE)
+0C..EOF [single zlib stream]   starts with 78 01 / 78 9C / 78 DA / 78 5E
+```
+
+**Wii WaW** is identical in shape but with **big-endian** version bytes
+(`00 00 01 9B`). Both decompress by feeding everything from offset `0x0C` to EOF into a
+single zlib stream. Note PC and Wii zone **contents** still differ in byte order — see
+[Zone.md](Zone.md).
 
 ### Decompression Flow
 

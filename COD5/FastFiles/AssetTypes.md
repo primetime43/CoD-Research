@@ -8,6 +8,13 @@ Asset types identify the kind of data stored in a zone file's asset pool. Each 8
 - **PS3**: Includes both pixelshader and vertexshader
 - **Xbox 360**: Has pixelshader but NO vertexshader - types >= 0x08 shift by -1
 - **PC**: Has NEITHER pixelshader nor vertexshader - types >= 0x07 shift by -2
+- **Wii**: Uses the **PC enum** (no shader slots) — see the Wii note below
+
+> **WaW Wii uses the PC asset-type enum.** Even though Wii zones are **big-endian** (like
+> PS3), their type IDs follow the **PC** mapping (`CoD5AssetTypePC`), not the PS3 one —
+> Treyarch dropped both shader slots on Wii. So on Wii, **rawfile = 0x20**, **localize =
+> 0x17**, **stringtable = 0x21** (the PC column below), but the record bytes are stored
+> big-endian: `00 00 00 20 FF FF FF FF`. Verified against retail Wii zones.
 
 See [Zone Files](Zone.md) for information about how assets are stored in zones.
 

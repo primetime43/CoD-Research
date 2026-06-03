@@ -15,8 +15,13 @@ FastFiles (.ff) are compressed archives containing zone data. CoD4 uses the IW3.
 |----------|---------|-----------|------------|-------------|
 | PS3 | 1 | `00 00 00 01` | Big Endian | 64KB blocks |
 | Xbox 360 | 1 | `00 00 00 01` | Big Endian | 64KB blocks |
-| PC | 5 | `00 00 00 05` | Little Endian | Single stream |
-| Wii | 418 | `00 00 01 A2` | Big Endian | Single stream |
+| PC | 5 | `05 00 00 00` * | Little Endian * | Single stream * |
+| Wii (Reflex) | 418 | `00 00 01 A2` | Big Endian | Single stream |
+
+\* **CoD4 PC is presumed, not verified** — no PC samples have been tested. The shape is
+assumed to match WaW PC (single LE zlib stream), so the version would store little-endian
+as `05 00 00 00`, but the exact byte order is unconfirmed. The **Wii (Reflex Edition)**
+row *is* verified: single big-endian zlib stream, version `0x1A2`.
 
 ## Compression
 

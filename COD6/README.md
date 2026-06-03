@@ -26,8 +26,8 @@ Documentation on the FastFile (.ff) archive format and Zone files.
 
 | Feature | CoD4/WaW | MW2 |
 |---------|----------|-----|
-| FF Version | 0x01 (CoD4), 0x183 (WaW) | 0x10D |
-| Zone Header | 52 bytes | 48 bytes |
+| FF Version | 0x01 (CoD4), 0x183 (WaW) | 0x10D (console), 0x114 (PC) |
+| Zone Header | 52 bytes | 52 bytes PS3 (Xbox 360: 48, PC: 56) |
 | Raw File Compression | No | Yes (zlib) |
 | First Raw File Header | 12 bytes | 20 bytes |
 | Two-Level Compression | No | Yes (FF blocks + zone files) |

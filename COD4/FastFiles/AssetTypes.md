@@ -7,9 +7,17 @@
 | PS3 | Big Endian | pixelshader, vertexshader | Both shader types present |
 | Xbox 360 | Big Endian | pixelshader | No vertexshader |
 | PC | Little Endian | - | No shader assets in zone |
-| Wii | Big Endian | - | No shader assets |
+| Wii (Reflex) | Big Endian | pixelshader | **Uses the Xbox 360 enum** (see note) |
 
 Asset type IDs vary by platform due to differences in shader support. This causes all asset IDs after the shader types to shift between platforms.
+
+> **CoD4 Wii (Reflex Edition) uses the Xbox 360 asset enum** — not a shader-less enum.
+> Infinity Ward kept `pixelshader` at `0x05` and dropped only `vertexshader`, so the Wii
+> IDs match the **Xbox 360 column** below (e.g. `rawfile = 0x20`, `techset = 0x06`,
+> `image = 0x07`), with record bytes stored **big-endian**. CoD4 Wii also **extends** the
+> enum with **`packindex = 0x22`** for `.pak` texture archives (seen in `*_loose.ff`
+> files). This differs from WaW Wii, which uses the *PC* enum — the two studios made
+> different enum choices for the same hardware. Verified against retail Reflex load FFs.
 
 ## Asset Type IDs by Platform
 
