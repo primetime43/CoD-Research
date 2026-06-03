@@ -47,7 +47,7 @@ Documentation for Call of Duty 4: Modern Warfare file formats, memory offsets, a
 
 ## Other Games
 
-- [`World at War - COD5`](../World%20at%20War%20-%20COD5/) - World at War documentation
+- [`World-at-War-COD5`](../World-at-War-COD5/) - World at War documentation
 - [Main index](../README.md) - All games
 
 ## Resources
