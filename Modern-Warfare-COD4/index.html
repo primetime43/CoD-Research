@@ -116,6 +116,14 @@
       color: var(--theme-color) !important;
     }
     /* ===== Dev-docs readability enhancements ===== */
+    /* Remove misleading sidebar page-link arrows (nothing expands with subMaxLevel:0) */
+    :root {
+      --sidebar-nav-pagelink-background-image: none;
+      --sidebar-nav-pagelink-background-image--active: none;
+      --sidebar-nav-pagelink-background-image--collapse: none;
+      --sidebar-nav-pagelink-background-image--loaded: none;
+    }
+    .sidebar-nav li > a { background-image: none !important; }
     /* Cap line length on prose; tables & code stay full-width */
     .markdown-section p,
     .markdown-section li,
