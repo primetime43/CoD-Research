@@ -115,6 +115,48 @@
     .sidebar-nav a[href="../"]:hover {
       color: var(--theme-color) !important;
     }
+    /* ===== Dev-docs readability enhancements ===== */
+    /* Cap line length on prose; tables & code stay full-width */
+    .markdown-section p,
+    .markdown-section li,
+    .markdown-section blockquote,
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3 {
+      max-width: 60rem;
+    }
+    /* Monospace the first table column (offsets / IDs / code identifiers) */
+    .markdown-section table td:first-child,
+    .markdown-section table th:first-child {
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      white-space: nowrap;
+    }
+    .markdown-section table { font-variant-numeric: tabular-nums; }
+    /* Copy-code button */
+    .docsify-copy-code-button {
+      font-size: 0.7rem !important;
+      background: var(--theme-color) !important;
+      color: #0d0d0d !important;
+    }
+    /* Right-side "On this page" table of contents (wide screens only) */
+    .page_toc {
+      position: fixed;
+      top: 75px;
+      right: 20px;
+      width: 200px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+      padding: 4px 14px;
+      font-size: 0.82rem;
+      border-left: 2px solid var(--theme-color);
+      z-index: 10;
+    }
+    .page_toc p.title { font-weight: 600; color: var(--theme-color); margin: 0 0 6px; }
+    .page_toc a { display: block; padding: 2px 0; color: #9e9e9e; text-decoration: none; line-height: 1.35; }
+    .page_toc a:hover { color: var(--theme-color); }
+    .page_toc .lv3 { padding-left: 12px; font-size: 0.95em; }
+    @media (min-width: 1301px) { .content { padding-right: 240px; } }
+    @media (max-width: 1300px) { .page_toc { display: none; } }
   </style>
 </head>
 <body>
@@ -127,6 +169,10 @@
       loadSidebar: true,
       subMaxLevel: 3,
       auto2top: true,
+      toc: {
+        tocMaxLevel: 3,
+        target: 'h2, h3'
+      },
       search: {
         placeholder: 'Search...',
         noData: 'No Results',
@@ -137,5 +183,7 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
 </body>
 </html>
