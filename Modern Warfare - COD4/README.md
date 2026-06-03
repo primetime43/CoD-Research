@@ -45,10 +45,10 @@ Documentation for Call of Duty 4: Modern Warfare file formats, memory offsets, a
 | localize | 0x18 |
 | weapon | 0x19 |
 
-## Other Branches
+## Other Games
 
-- `COD5` - World at War documentation
-- `main` - General info
+- [`World at War - COD5`](../World%20at%20War%20-%20COD5/) - World at War documentation
+- [Main index](../README.md) - All games
 
 ## Resources
 
