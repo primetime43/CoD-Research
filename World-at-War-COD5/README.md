@@ -38,6 +38,22 @@ Documentation on the FastFile (.ff) archive format and Zone files.
 - [Offsets/](Offsets/) - Memory offsets for PS3 and PC
 - [Structs/](Structs/) - Data structures used by the game engine
 
+### DemonWare and Online Systems
+
+The PS3 DemonWare section documents the client embedded in the canonical
+BLUS30192 MP and SP executables. It is organized around actual ELF functions,
+RTTI, vtables, serializers, object layouts, and game call paths rather than a
+custom-server implementation.
+
+- [DemonWare overview](DemonWare/README.md) - Image identities, architecture,
+  evidence rules, and service/task matrix
+- [ELF APIs and tables](DemonWare/ELF-APIs.md) - Target-qualified virtual
+  addresses, wrappers, globals, vtables, and recovered object fields
+- [Wire formats and objects](DemonWare/Wire-Formats.md) - Legacy typed fields,
+  authentication/lobby crypto, request/result layouts, stats, invites, and NAT
+- [ELF call-flow charts](DemonWare/Flow-Charts.md) - Authentication, lobby
+  tasks, storage, stats, matchmaking, invites, and peer-network transitions
+
 ### Other
 - [Ultimate_WaW_DVAR_List.md](Ultimate_WaW_DVAR_List.md) - Comprehensive list of DVars
 

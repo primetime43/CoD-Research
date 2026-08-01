@@ -40,6 +40,12 @@
   - [PS3 Player](Offsets/PS3/Player%20Offsets.md)
   - [PC Offsets](Offsets/PC/Offsets.md)
 
+- **DemonWare (PS3 ELF)**
+  - [Overview](DemonWare/README.md)
+  - [ELF APIs & Tables](DemonWare/ELF-APIs.md)
+  - [Wire Formats & Objects](DemonWare/Wire-Formats.md)
+  - [ELF Call-Flow Charts](DemonWare/Flow-Charts.md)
+
 - **Structs**
   - [PC Structs](Structs/PC/Structs.md)
 
