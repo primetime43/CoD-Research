@@ -30,5 +30,5 @@ Impact effects vary based on the surface material:
 
 ## Related Assets
 
-- [FX (0x1C)](FX.md) - Visual effects system
-- [Sound (0x0B)](Sound.md) - Impact sounds
+- [FX (0x1C)](FastFiles/Assets/FX.md) - Visual effects system
+- [Sound (0x0B)](FastFiles/Assets/Sound.md) - Impact sounds

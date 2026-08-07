@@ -20,4 +20,4 @@ Loaded sounds are audio files that are fully loaded into memory for immediate pl
 
 ## Related Assets
 
-- [Sound (0x0B)](Sound.md) - Sound definitions that reference loaded sounds
+- [Sound (0x0B)](FastFiles/Assets/Sound.md) - Sound definitions that reference loaded sounds

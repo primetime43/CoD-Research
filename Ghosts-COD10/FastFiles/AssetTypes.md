@@ -11,7 +11,7 @@ stored big-endian:
 PP PP PP PP 00 00 00 XX     XX = type ID (≤ 0x35)
 ```
 
-See [Zone.md](Zone.md) for pool-walking details.
+See [Zone.md](FastFiles/Zone.md) for pool-walking details.
 
 ---
 
@@ -77,6 +77,6 @@ No samples for those platforms have been tested.
 
 ## References
 
-- [FastFiles.md](FastFiles.md) — container format
-- [Zone.md](Zone.md) — zone structure and per-asset headers
+- [FastFiles.md](FastFiles/FastFiles.md) — container format
+- [Zone.md](FastFiles/Zone.md) — zone structure and per-asset headers
 - [COD Research Wiki](https://codresearch.dev/)

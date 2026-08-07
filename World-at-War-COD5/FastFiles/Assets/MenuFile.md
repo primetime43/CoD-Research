@@ -31,4 +31,4 @@ Menu files are text-based definitions that describe UI layouts:
 
 ## Related Assets
 
-- [Menu (0x18)](Menu.md) - Compiled menu definitions
+- [Menu (0x18)](FastFiles/Assets/Menu.md) - Compiled menu definitions

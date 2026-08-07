@@ -15,6 +15,6 @@ Vertex shaders are GPU programs that transform vertex positions and prepare data
 
 ## Related Assets
 
-- [Pixel Shader (0x07)](PixelShader.md) - Pixel color shaders
-- [Technique Set (0x09)](TechniqueSet.md) - Shader technique collections
-- [Material (0x06)](Material.md) - Material definitions using shaders
+- [Pixel Shader (0x07)](FastFiles/Assets/PixelShader.md) - Pixel color shaders
+- [Technique Set (0x09)](FastFiles/Assets/TechniqueSet.md) - Shader technique collections
+- [Material (0x06)](FastFiles/Assets/Material.md) - Material definitions using shaders

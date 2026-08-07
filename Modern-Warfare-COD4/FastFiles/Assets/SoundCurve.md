@@ -2,7 +2,7 @@
 
 Distance falloff curves for sound attenuation.
 
-> **Note:** Asset type IDs vary by platform. See [AssetTypes.md](../AssetTypes.md) for the full list.
+> **Note:** Asset type IDs vary by platform. See [AssetTypes.md](FastFiles/AssetTypes.md) for the full list.
 
 ## Overview
 

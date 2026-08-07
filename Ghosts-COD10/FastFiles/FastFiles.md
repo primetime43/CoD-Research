@@ -110,7 +110,7 @@ From `A + 0x20000` to EOF, the file is a sequence of raw-deflate blocks:
 - Each block decompresses to **exactly 0x10000 bytes (64 KB)**.
 - There is **no end marker** — the stream ends at EOF.
 - This is the *outer* layer. Many individual assets are then **zlib-compressed a second
-  time** inside the zone (see [Zone.md](Zone.md)).
+  time** inside the zone (see [Zone.md](FastFiles/Zone.md)).
 
 ### Verified block counts
 
@@ -132,7 +132,7 @@ From `A + 0x20000` to EOF, the file is a sequence of raw-deflate blocks:
 4. Walk the deflate-block stream: read a 2-byte BE `srcSize`, raw-inflate `srcSize`
    bytes (each block → 64 KB), repeat to EOF. Concatenate to form the raw zone.
 5. **Second pass:** walk each asset header and expand any inner zlib stream inline (see
-   [Zone.md](Zone.md)). A zone fully processed this way has zero residual `78 XX` zlib
+   [Zone.md](FastFiles/Zone.md)). A zone fully processed this way has zero residual `78 XX` zlib
    streams.
 
 No encryption is involved anywhere — the outer layer is raw deflate, inner per-asset
@@ -156,7 +156,7 @@ streams are standard zlib.
 
 ## References
 
-- [Zone.md](Zone.md) — zone structure, asset pool, per-asset headers, Lua bytecode
-- [AssetTypes.md](AssetTypes.md) — IW6 PS3 asset type IDs
+- [Zone.md](FastFiles/Zone.md) — zone structure, asset pool, per-asset headers, Lua bytecode
+- [AssetTypes.md](FastFiles/AssetTypes.md) — IW6 PS3 asset type IDs
 - [COD Research Wiki](https://codresearch.dev/)
 - Verified against PS3 retail samples (patch, DLC, and base zones)

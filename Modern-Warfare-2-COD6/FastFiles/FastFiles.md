@@ -192,7 +192,7 @@ platforms — only the *outer* container differs.
   format as signed MW2 PC, just with the full 25-byte `DB_Header` instead of PC's 9-byte
   preamble.
 - **Zone:** 48-byte header (drops `BlockSizeVertex`); asset IDs use the `MW2AssetTypeXbox360`
-  enum (no `vertexshader`, IDs ≥ `0x07` shift −1 from PS3). See [Zone.md](Zone.md).
+  enum (no `vertexshader`, IDs ≥ `0x07` shift −1 from PS3). See [Zone.md](FastFiles/Zone.md).
 
 ---
 

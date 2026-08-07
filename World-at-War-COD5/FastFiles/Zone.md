@@ -9,7 +9,7 @@ Zone files are the **decompressed content** stored inside FastFiles. A zone is e
 - **Xbox 360**: Big-endian, no vertexshader (asset types shifted by -1)
 - **PC**: Little-endian, no pixelshader or vertexshader (asset types shifted by -2)
 
-See [FastFiles](FastFiles.md) for information about the compressed container format.
+See [FastFiles](FastFiles/FastFiles.md) for information about the compressed container format.
 
 ---
 
@@ -129,7 +129,7 @@ because the header is 4 bytes larger).
 > **`CoD5AssetTypePC`** mapping (no `pixelshader`/`vertexshader` slots), *not* the PS3
 > enum — verified from a credits zone where the PC interpretation gives a coherent type
 > distribution (899 localize, 17 rawfile, …) while the PS3 enum gives nonsense. See
-> [AssetTypes.md](AssetTypes.md).
+> [AssetTypes.md](FastFiles/AssetTypes.md).
 
 ### XAssetList Structure (Asset Metadata)
 
@@ -244,7 +244,7 @@ The table below shows **PS3** asset type IDs. Xbox 360 and PC have different IDs
 > - **Xbox 360**: No vertexshader, so types >= 0x08 shift by -1 (rawfile = 0x21)
 > - **PC**: No pixelshader or vertexshader, so types >= 0x07 shift by -2 (rawfile = 0x20)
 >
-> See [AssetTypes.md](AssetTypes.md) for complete platform comparison.
+> See [AssetTypes.md](FastFiles/AssetTypes.md) for complete platform comparison.
 
 ---
 

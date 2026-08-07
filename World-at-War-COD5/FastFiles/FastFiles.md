@@ -103,7 +103,7 @@ and no `00 01` terminator:
 **Wii WaW** is identical in shape but with **big-endian** version bytes
 (`00 00 01 9B`). Both decompress by feeding everything from offset `0x0C` to EOF into a
 single zlib stream. Note PC and Wii zone **contents** still differ in byte order — see
-[Zone.md](Zone.md).
+[Zone.md](FastFiles/Zone.md).
 
 ### Decompression Flow
 

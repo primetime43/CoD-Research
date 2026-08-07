@@ -26,6 +26,6 @@ The Graphics Map (gfx_map) contains all rendering-related data for a map level.
 
 ## Related Assets
 
-- [Collision Map (0x0D/0E)](CollisionMap.md) - Physics collision data
-- [Map Entities (0x12)](MapEnts.md) - Entity definitions
-- [Light Def (0x14)](LightDef.md) - Light source definitions
+- [Collision Map (0x0D/0E)](FastFiles/Assets/CollisionMap.md) - Physics collision data
+- [Map Entities (0x12)](FastFiles/Assets/MapEnts.md) - Entity definitions
+- [Light Def (0x14)](FastFiles/Assets/LightDef.md) - Light source definitions

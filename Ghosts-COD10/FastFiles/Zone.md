@@ -6,7 +6,7 @@ through a tag region and then the asset pool — but with IW6-specific details. 
 are **big-endian** (PS3 is PowerPC). Verified against PS3 retail patch, DLC, and base
 zones only.
 
-> **Two-level compression:** the outer FastFile deflate (see [FastFiles.md](FastFiles.md))
+> **Two-level compression:** the outer FastFile deflate (see [FastFiles.md](FastFiles/FastFiles.md))
 > produces the *raw* zone, in which many assets are still individually **zlib-compressed**.
 > A complete extraction expands those inner streams inline, leaving readable content.
 
@@ -79,7 +79,7 @@ strict type-word structure plus the header `assetCount` are what delimit the poo
 | `80 XX XX XX` | High-bit-set resolved pointer (CoD4/WaW convention) |
 | `40 XX XX XX` | **0x40-flagged resolved pointer — IW6-specific** (e.g. `40 1F DF 85` in `patch_ui_mp.zone` material→image references). Code that only accepted the `0x80` form found just 87 of 1256 entries in that zone. |
 
-See [AssetTypes.md](AssetTypes.md) for the type IDs.
+See [AssetTypes.md](FastFiles/AssetTypes.md) for the type IDs.
 
 ---
 
@@ -186,6 +186,6 @@ reverse-engineering.
 
 ## References
 
-- [FastFiles.md](FastFiles.md) — container format and decompression
-- [AssetTypes.md](AssetTypes.md) — IW6 PS3 asset type IDs
+- [FastFiles.md](FastFiles/FastFiles.md) — container format and decompression
+- [AssetTypes.md](FastFiles/AssetTypes.md) — IW6 PS3 asset type IDs
 - [COD Research Wiki](https://codresearch.dev/)

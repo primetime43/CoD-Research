@@ -2,7 +2,7 @@
 
 Weapon definitions with ~400 fields covering models, animations, audio, ballistics, and gameplay.
 
-> **Note:** Asset type IDs vary by platform. See [AssetTypes.md](../AssetTypes.md) for the full list.
+> **Note:** Asset type IDs vary by platform. See [AssetTypes.md](FastFiles/AssetTypes.md) for the full list.
 
 ## Key Info
 

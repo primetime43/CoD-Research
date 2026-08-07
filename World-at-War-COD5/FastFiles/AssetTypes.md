@@ -16,7 +16,7 @@ Asset types identify the kind of data stored in a zone file's asset pool. Each 8
 > 0x17**, **stringtable = 0x21** (the PC column below), but the record bytes are stored
 > big-endian: `00 00 00 20 FF FF FF FF`. Verified against retail Wii zones.
 
-See [Zone Files](Zone.md) for information about how assets are stored in zones.
+See [Zone Files](FastFiles/Zone.md) for information about how assets are stored in zones.
 
 ---
 
@@ -152,5 +152,5 @@ When parsing a FastFile, determine the platform by checking:
 
 - [COD Research Wiki - WaW Assets](https://codresearch.dev/index.php/Category:WaW)
 - [COD Research Wiki - Assets](https://codresearch.dev/index.php/Category:Assets)
-- [Zone Files](Zone.md)
-- [FastFiles](FastFiles.md)
+- [Zone Files](FastFiles/Zone.md)
+- [FastFiles](FastFiles/FastFiles.md)
