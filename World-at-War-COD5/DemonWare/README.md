@@ -76,13 +76,13 @@ second image is not sufficient proof.
 
 ## Documentation map
 
-- [ELF APIs and tables](ELF-APIs.md) — functions, vtables, globals, wrapper
+- [ELF APIs and tables](DemonWare/ELF-APIs.md) — functions, vtables, globals, wrapper
   APIs, and recovered object fields.
-- [DemonWare operation lookup](Operations.md) — readable service/task enum
+- [DemonWare operation lookup](DemonWare/Operations.md) — readable service/task enum
   names, raw wire IDs, and operation meanings.
-- [Wire formats and objects](Wire-Formats.md) — typed fields, crypto framing,
+- [Wire formats and objects](DemonWare/Wire-Formats.md) — typed fields, crypto framing,
   task payloads, result layouts, stats rows, invites, and NAT packets.
-- [ELF call-flow charts](Flow-Charts.md) — actual client-side control flow from
+- [ELF call-flow charts](DemonWare/Flow-Charts.md) — actual client-side control flow from
   authentication through lobby tasks and peer networking.
 
 ## High-value research areas

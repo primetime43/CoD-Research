@@ -33,7 +33,7 @@ constructor at MP/SP `0x0004E480` consumes that bit before any field tag is
 read.
 
 Operation names and their numeric protocol values are listed on the standalone
-[DemonWare Operation Lookup](Operations.md). The remainder of this page uses
+[DemonWare Operation Lookup](DemonWare/Operations.md). The remainder of this page uses
 those symbolic names.
 
 ## PS3 authentication request

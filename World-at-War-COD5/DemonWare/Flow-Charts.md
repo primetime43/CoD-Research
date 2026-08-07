@@ -7,7 +7,7 @@ model a replacement server or its persistence layer.
 Mermaid is used so the same source renders on GitHub and other compatible
 Markdown viewers. Diagram labels use the recovered symbolic operation names;
 the corresponding numeric wire values are kept in the standalone
-[DemonWare Operation Lookup](Operations.md).
+[DemonWare Operation Lookup](DemonWare/Operations.md).
 
 ## Image and address ownership
 

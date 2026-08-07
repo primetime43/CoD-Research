@@ -47,6 +47,7 @@ write under `LobbyService.STATS`, but a session create under
 | `LobbyService.PERFORMANCE` | `PerformanceTask.GET_PERFORMANCE_VALUES` | `2` | Read performance values for users |
 | `LobbyService.BANDWIDTH_TEST` | `BandwidthTask.RUN_TEST` | `1` | Run the raw byte-mode bandwidth test |
 
-See [Wire Formats and Objects](Wire-Formats.md) for the fields serialized by
-each operation and [ELF APIs and Tables](ELF-APIs.md) for the corresponding
-client functions and addresses.
+See [Wire Formats and Objects](DemonWare/Wire-Formats.md) for the fields
+serialized by each operation and
+[ELF APIs and Tables](DemonWare/ELF-APIs.md) for the corresponding client
+functions and addresses.
