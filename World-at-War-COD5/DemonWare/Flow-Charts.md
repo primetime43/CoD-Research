@@ -5,7 +5,9 @@ functions, in-memory objects, or wire messages used by the game. They do not
 model a replacement server or its persistence layer.
 
 Mermaid is used so the same source renders on GitHub and other compatible
-Markdown viewers.
+Markdown viewers. Diagram labels use the recovered symbolic operation names;
+the corresponding numeric wire values are kept in the
+[DemonWare operation lookup](Wire-Formats.md#demonware-operation-names).
 
 ## Image and address ownership
 
@@ -89,10 +91,10 @@ byte-mode LSG result at `+0x1C`. Polling reads state at `+0x14`.
 flowchart TD
     REQ[Game requests MOTD / playlist counts / FFOTD / config]
     START[LiveStorage_StartDWFileFetch]
-    LIST[bdStorage list publisher files<br/>service 10 task 8]
+    LIST[bdStorage list publisher files<br/>StorageTask.LIST_PUBLISHER_FILES]
     LISTRES[bdListFilesResult_deserialize<br/>typed size + bdLobbyFileHeader rows]
     SCAN[Game scans exact requested filename]
-    GET[bdStorage get file by ID<br/>service 10 task 5]
+    GET[bdStorage get file by ID<br/>StorageTask.GET_FILE]
     FILE[bdLobbyFile_deserialize<br/>header + BLOB]
     APPLY{Fetch type}
     MOTD[Trim, compare, apply MOTD]
@@ -114,23 +116,23 @@ Relevant wrapper pairs:
 | --- | ---: | ---: |
 | request localized MOTD | `0x004585D0` | `0x0034D178` |
 | shared fetch starter | `0x00458AB0` | `0x0034D668` |
-| start task-8 list | `0x0047BEB0` | `0x0036EC60` |
+| start publisher-file list | `0x0047BEB0` | `0x0036EC60` |
 | poll/scan list | `0x0047B6D0` | `0x0036E480` |
-| poll task-5 body | `0x0047BA80` | `0x0036E830` |
+| poll downloaded file body | `0x0047BA80` | `0x0036E830` |
 
 ## User-file lifecycle
 
 ```mermaid
 flowchart TD
     GAME[Game profile code]
-    LIST[service 10 task 7<br/>list by authenticated owner]
+    LIST[StorageTask.LIST_USER_FILES<br/>list by authenticated owner]
     HEADERS[bdListFilesResult<br/>file IDs and names]
     CHOICE{Named file exists?}
-    GET[service 10 task 5<br/>get body by file ID]
+    GET[StorageTask.GET_FILE<br/>get body by file ID]
     READ[bdLobbyFile<br/>header + BLOB]
-    NEW[service 10 task 1<br/>upload named file]
+    NEW[StorageTask.UPLOAD_USER_FILE<br/>upload named file]
     QUERY[bdQueryResult<br/>returned u64 file ID]
-    UPDATE[service 10 task 2<br/>existing ID + replacement BLOB]
+    UPDATE[StorageTask.UPDATE_USER_FILE<br/>existing ID + replacement BLOB]
     POLL[32-entry Live task table<br/>0x18 bytes per slot]
 
     GAME --> LIST --> HEADERS --> CHOICE
@@ -147,13 +149,13 @@ matching spelling does not prove the blobs have the same internal layout.
 ```mermaid
 flowchart TD
     END[Match result produced by game]
-    T1[service 4 task 1<br/>one board row]
-    T10[service 4 task 10<br/>repeated bulk rows]
+    T1[StatsTask.WRITE<br/>one board row]
+    T10[StatsTask.WRITE_MULTIPLE<br/>repeated bulk rows]
     R4[StatsRow4 serializer<br/>SP 0x00333FC8]
     R10[StatsRow10 serializer<br/>SP 0x003360F0]
     READ[Leaderboard UI refresh<br/>MP 0x00440890]
-    TASK4[service 4 task 4<br/>entity read]
-    TASK5[service 4 task 5<br/>pivot/rank read]
+    TASK4[StatsTask.READ_BY_ENTITY<br/>entity read]
+    TASK5[StatsTask.READ_BY_PIVOT_OR_RANK<br/>pivot/rank read]
     PAGE[Leaderboard page result<br/>MP 0x00440378]
     BASE[bdStatsInfo_deserialize<br/>entity/rating/rank/name]
     D4[4-column deserialize<br/>MP 0x002100E8<br/>SP 0x00336490]
@@ -171,19 +173,19 @@ flowchart TD
     BASE --> D10
 ```
 
-The concrete C++ row type, not the task number alone, controls the column
-count. SP task 1 has been captured with a four-column row, while task 10 can
-invoke a virtual concrete serializer.
+The concrete C++ row type, not the task operation alone, controls the column
+count. SP `StatsTask.WRITE` has been captured with a four-column row, while
+`StatsTask.WRITE_MULTIPLE` can invoke a virtual concrete serializer.
 
 ## Matchmaking discovery to peer-network start (MP)
 
 ```mermaid
 flowchart TD
     REGISTER[Game builds session registration]
-    CREATE[bdMatchMaking_createSession<br/>0x00077570 task 1]
-    UPDATE[bdMatchMaking_updateSession<br/>0x00077560 task 2]
+    CREATE[bdMatchMaking_createSession<br/>0x00077570<br/>MatchmakingTask.CREATE_SESSION]
+    UPDATE[bdMatchMaking_updateSession<br/>0x00077560<br/>MatchmakingTask.UPDATE_SESSION]
     SEARCH[Live_StartFindSessions_candidate<br/>0x00470928]
-    FIND[bdMatchMaking_findSessions<br/>0x00077550 task 5]
+    FIND[bdMatchMaking_findSessions<br/>0x00077550<br/>MatchmakingTask.FIND_SESSIONS]
     RESULT[bdMatchMakingSearchInfo_deserialize<br/>0x0047F820]
     CAND[MatchmakingCandidatePool_add<br/>0x001E30F8]
     QOS[bdQoSProbe / NAT traversal]
@@ -203,9 +205,9 @@ flowchart TD
     PUMP --> FILTER --> BEST --> COPY --> NET
 ```
 
-A successful task-5 reply is only a candidate offer. Static evidence reaches
-peer-network start; it does not show a later DemonWare task that proves the peer
-join completed.
+A successful `MatchmakingTask.FIND_SESSIONS` reply is only a candidate offer.
+Static evidence reaches peer-network start; it does not show a later DemonWare
+operation that proves the peer join completed.
 
 ## Native game-invite flow
 
@@ -218,7 +220,7 @@ sequenceDiagram
     participant G as Receiving game invite code
 
     S->>M: build nested "invite" BLOB
-    M->>M: 0x0007AB68 service 6 task 8
+    M->>M: 0x0007AB68 MessagingTask.SEND_GLOBAL_INSTANT_MESSAGE
     M->>B: context, BLOB, routing flags, recipient IDs
     B-->>L: encrypted lobby message type 2
     L->>L: 0x0004E480 consume m_typeChecked
@@ -261,4 +263,3 @@ flowchart TD
 
 The DTLS association derives a separate 24-byte shared key and initializes its
 own 3DES state. It is not the lobby session key.
-

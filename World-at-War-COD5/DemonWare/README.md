@@ -43,16 +43,16 @@ objects with different lifetimes.
 
 ## Recovered service and task table
 
-| Service | ID | Tasks observed in BLUS30192 | Client purpose |
-| --- | ---: | --- | --- |
-| `bdStats` | `4` | `1` write; `4` entity read; `5` pivot/rank read; `10` bulk write | MP leaderboards and SP/Zombies map statistics |
-| `bdMatchMaking` | `5` | `1` create; `2` update; `3` delete; `5` find | Advertise and discover peer-hosted sessions |
-| `bdMessaging` | `6` | `8` global instant message | Native game-invite transport |
-| `bdStorage` | `10` | `1` upload; `2` update; `5` get; `7` list by owner; `8` list publisher files | Publisher settings and opaque profile files |
-| `bdTitleUtilities` | `12` | `1` verify string | Synchronous generated-name/profanity check |
-| `bdKeyArchive` | `16` | `1` write; `3` read keys; `4` multi-entity read | Typed persistent scalar values |
-| `bdPerformance` | `17` | `1` submit; `2` get values | Party-member performance input |
-| `bdBandwidthTestClient` | `18` | `1` bootstrap and final report | Public-host upload/download measurement |
+| Client class | Service enum | Operations observed in BLUS30192 | Client purpose |
+| --- | --- | --- | --- |
+| `bdStats` | `LobbyService.STATS` | `StatsTask.WRITE`; `StatsTask.READ_BY_ENTITY`; `StatsTask.READ_BY_PIVOT_OR_RANK`; `StatsTask.WRITE_MULTIPLE` | MP leaderboards and SP/Zombies map statistics |
+| `bdMatchMaking` | `LobbyService.MATCHMAKING` | `MatchmakingTask.CREATE_SESSION`; `MatchmakingTask.UPDATE_SESSION`; `MatchmakingTask.DELETE_SESSION`; `MatchmakingTask.FIND_SESSIONS` | Advertise and discover peer-hosted sessions |
+| `bdMessaging` | `LobbyService.MESSAGING` | `MessagingTask.SEND_GLOBAL_INSTANT_MESSAGE` | Native game-invite transport |
+| `bdStorage` | `LobbyService.STORAGE` | `StorageTask.UPLOAD_USER_FILE`; `StorageTask.UPDATE_USER_FILE`; `StorageTask.GET_FILE`; `StorageTask.LIST_USER_FILES`; `StorageTask.LIST_PUBLISHER_FILES` | Publisher settings and opaque profile files |
+| `bdTitleUtilities` | `LobbyService.TITLE_UTILITIES` | `TitleUtilitiesTask.VERIFY_STRING` | Synchronous generated-name/profanity check |
+| `bdKeyArchive` | `LobbyService.KEY_ARCHIVE` | `KeyArchiveTask.WRITE`; `KeyArchiveTask.READ_BY_KEYS`; `KeyArchiveTask.READ_BY_ENTITY` | Typed persistent scalar values |
+| `bdPerformance` | `LobbyService.PERFORMANCE` | `PerformanceTask.SUBMIT_PERFORMANCE`; `PerformanceTask.GET_PERFORMANCE_VALUES` | Party-member performance input |
+| `bdBandwidthTestClient` | `LobbyService.BANDWIDTH_TEST` | `BandwidthTask.RUN_TEST` | Public-host upload/download measurement |
 
 These are legacy five-bit `bdBitBuffer` tasks. They are not the later
 byte-oriented DemonWare protocol used by newer titles.
@@ -78,8 +78,9 @@ second image is not sufficient proof.
 
 - [ELF APIs and tables](ELF-APIs.md) — functions, vtables, globals, wrapper
   APIs, and recovered object fields.
-- [Wire formats and objects](Wire-Formats.md) — typed fields, crypto framing,
-  task payloads, result layouts, stats rows, invites, and NAT packets.
+- [Wire formats and objects](Wire-Formats.md) — the symbolic-operation-to-wire
+  lookup, typed fields, crypto framing, task payloads, result layouts, stats
+  rows, invites, and NAT packets.
 - [ELF call-flow charts](Flow-Charts.md) — actual client-side control flow from
   authentication through lobby tasks and peer networking.
 
@@ -91,12 +92,12 @@ Useful next ELF work includes:
 
 - independently mapping the SP auth/lobby classes instead of assuming MP
   addresses;
-- locating the SP service-4 task wrappers that select four- versus ten-column
-  row classes;
-- recovering complete `bdKeyArchive` task-1 field construction;
-- naming the unresolved task-10 entity byte from class or enum evidence;
+- locating the SP `LobbyService.STATS` task wrappers that select four- versus
+  ten-column row classes;
+- recovering complete `KeyArchiveTask.WRITE` field construction;
+- naming the unresolved `StatsTask.WRITE_MULTIPLE` entity byte from class or
+  enum evidence;
 - mapping the full `bdLobbyServiceImpl` factory/service table;
 - identifying the exact ownership and lifetime of global service singletons;
 - tracing successful peer admission from `Party_StartNetwork` through
   `bdSocketRouter`/DTLS completion.
-

@@ -32,6 +32,47 @@ The first bit of an ordinary task/result bit buffer is `m_typeChecked`. The
 constructor at MP/SP `0x0004E480` consumes that bit before any field tag is
 read.
 
+## DemonWare operation names
+
+The rest of this page uses symbolic service and task names so each operation is
+readable without memorizing protocol numbers. Raw values are retained only in
+these lookup tables for packet decoding.
+
+| Service enum | Wire ID |
+| --- | ---: |
+| `LobbyService.STATS` | `4` |
+| `LobbyService.MATCHMAKING` | `5` |
+| `LobbyService.MESSAGING` | `6` |
+| `LobbyService.STORAGE` | `10` |
+| `LobbyService.TITLE_UTILITIES` | `12` |
+| `LobbyService.KEY_ARCHIVE` | `16` |
+| `LobbyService.PERFORMANCE` | `17` |
+| `LobbyService.BANDWIDTH_TEST` | `18` |
+
+| Service | Task enum | Wire ID |
+| --- | --- | ---: |
+| Stats | `StatsTask.WRITE` | `1` |
+| Stats | `StatsTask.READ_BY_ENTITY` | `4` |
+| Stats | `StatsTask.READ_BY_PIVOT_OR_RANK` | `5` |
+| Stats | `StatsTask.WRITE_MULTIPLE` | `10` |
+| Matchmaking | `MatchmakingTask.CREATE_SESSION` | `1` |
+| Matchmaking | `MatchmakingTask.UPDATE_SESSION` | `2` |
+| Matchmaking | `MatchmakingTask.DELETE_SESSION` | `3` |
+| Matchmaking | `MatchmakingTask.FIND_SESSIONS` | `5` |
+| Messaging | `MessagingTask.SEND_GLOBAL_INSTANT_MESSAGE` | `8` |
+| Storage | `StorageTask.UPLOAD_USER_FILE` | `1` |
+| Storage | `StorageTask.UPDATE_USER_FILE` | `2` |
+| Storage | `StorageTask.GET_FILE` | `5` |
+| Storage | `StorageTask.LIST_USER_FILES` | `7` |
+| Storage | `StorageTask.LIST_PUBLISHER_FILES` | `8` |
+| Title utilities | `TitleUtilitiesTask.VERIFY_STRING` | `1` |
+| KeyArchive | `KeyArchiveTask.WRITE` | `1` |
+| KeyArchive | `KeyArchiveTask.READ_BY_KEYS` | `3` |
+| KeyArchive | `KeyArchiveTask.READ_BY_ENTITY` | `4` |
+| Performance | `PerformanceTask.SUBMIT_PERFORMANCE` | `1` |
+| Performance | `PerformanceTask.GET_PERFORMANCE_VALUES` | `2` |
+| Bandwidth test | `BandwidthTask.RUN_TEST` | `1` |
+
 ## PS3 authentication request
 
 ```text
@@ -131,8 +172,8 @@ typed u8    task ID
 typed ...   task-specific fields
 ```
 
-Service 18 is the exception: its body begins with a raw task byte and an opaque
-byte-mode payload.
+`LobbyService.BANDWIDTH_TEST` is the exception: its body begins with a raw task
+byte and an opaque byte-mode payload.
 
 ## Task reply/result envelope
 
@@ -161,17 +202,17 @@ Lobby message type 5 is a different byte-mode LSG result. MP
 `0x000810C0 bdRemoteTaskManager_handleLsgTaskReply` reads a raw little-endian
 transaction ID and stores the remaining bytes at `bdRemoteTask+0x1C`.
 
-## Service 10: `bdStorage` requests
+## `bdStorage` requests (`LobbyService.STORAGE`)
 
 All rows below are proven independently in MP and SP.
 
-| Task | Request fields after typed task ID |
-| ---: | --- |
-| `1` upload | typed `u8` context; typed boolean; typed filename string; typed boolean; BLOB tag; typed `u32` size; raw body |
-| `2` update | typed `u8 0`; typed `u64` existing file ID; BLOB tag; typed `u32` size; raw body |
-| `5` get by ID | typed `u8 0`; typed `u64` publisher or user file ID |
-| `7` list by owner | typed `u8 0`; typed `u64` owner ID; typed `u32` start; typed `u16` maximum; optional typed filename |
-| `8` list publisher | typed `u8 0`; typed `u32` start; typed `u16` maximum; optional typed filename |
+| Operation | Request fields after typed task ID |
+| --- | --- |
+| `StorageTask.UPLOAD_USER_FILE` | typed `u8` context; typed boolean; typed filename string; typed boolean; BLOB tag; typed `u32` size; raw body |
+| `StorageTask.UPDATE_USER_FILE` | typed `u8 0`; typed `u64` existing file ID; BLOB tag; typed `u32` size; raw body |
+| `StorageTask.GET_FILE` | typed `u8 0`; typed `u64` publisher or user file ID |
+| `StorageTask.LIST_USER_FILES` | typed `u8 0`; typed `u64` owner ID; typed `u32` start; typed `u16` maximum; optional typed filename |
+| `StorageTask.LIST_PUBLISHER_FILES` | typed `u8 0`; typed `u32` start; typed `u16` maximum; optional typed filename |
 
 ### `bdLobbyFileHeader` result
 
@@ -194,12 +235,12 @@ owner ID at `+0x20`, filename at `+0x28`, and file size at `+0xA8`.
 constructs/deserializes the header. `bdLobbyFile_deserialize` instead reads the
 header followed by a BLOB tag, typed `u32` count, and raw body bytes.
 
-Task 1 upload completion uses `bdQueryResult`, whose result object contains the
-returned 64-bit file ID.
+`StorageTask.UPLOAD_USER_FILE` completion uses `bdQueryResult`, whose result
+object contains the returned 64-bit file ID.
 
-## Service 4: stats and leaderboard objects
+## Stats and leaderboard objects (`LobbyService.STATS`)
 
-### Task 1 write
+### `StatsTask.WRITE`
 
 ```text
 typed u8   context
@@ -217,7 +258,7 @@ MP captures use ten columns. A live SP solo-Zombies capture used four columns
 for board 1023, so the task number alone does not prove the concrete C++ row
 type.
 
-### Task 10 bulk write
+### `StatsTask.WRITE_MULTIPLE`
 
 There is no top-level row count. Rows repeat until alignment padding:
 
@@ -233,7 +274,7 @@ typed s32  columns[field count - 1]   # four in captures
 SP `0x00333FC8` serializes four columns from object `+0x64..+0x70`. SP
 `0x003360F0` is a distinct ten-column serializer covering `+0x64..+0x88`.
 
-### Task 4 entity read
+### `StatsTask.READ_BY_ENTITY`
 
 ```text
 typed u8   context
@@ -242,7 +283,7 @@ typed u32  entity count
 typed u64  entity IDs[count]
 ```
 
-### Task 5 pivot/rank read
+### `StatsTask.READ_BY_PIVOT_OR_RANK`
 
 ```text
 typed u8   context
@@ -265,7 +306,7 @@ repeat returned row count:
     typed s32     concrete columns[4 or 10]
 ```
 
-## Service 5: matchmaking result object
+## Matchmaking result object (`LobbyService.MATCHMAKING`)
 
 `bdMatchMakingInfo_deserializeBase` at MP `0x00078408` reads:
 
@@ -283,11 +324,11 @@ WaW's concrete `bdMatchMakingSearchInfo` then reads nine more typed signed
 The in-memory accessors expose the security ID at result `+0x04`, security key
 at `+0x0C`, and four low-byte attributes at `+0x20..+0x23`.
 
-## Service 16: KeyArchive values
+## KeyArchive values (`LobbyService.KEY_ARCHIVE`)
 
 The observed `bdArchiveValue` signed-32 variant uses discriminator 2.
 
-Task-1 write values serialize:
+`KeyArchiveTask.WRITE` values serialize:
 
 ```text
 value variant
@@ -295,7 +336,8 @@ update operation
 typed value payload
 ```
 
-Task-3/task-4 read results deserialize:
+`KeyArchiveTask.READ_BY_KEYS` and `KeyArchiveTask.READ_BY_ENTITY` results
+deserialize:
 
 ```text
 value variant
@@ -306,29 +348,31 @@ The update-operation byte is deliberately absent from read results. MP
 `0x00072758 bdArchiveValue_deserialize` reads the payload immediately after the
 variant.
 
-Task 3 and task 4 responses contain a key-name table and two entity/value-group
-tables. Each table begins with a typed `u16` count.
+Both read operations return a key-name table and two entity/value-group tables.
+Each table begins with a typed `u16` count.
 
-## Service 17: performance values
+## Performance values (`LobbyService.PERFORMANCE`)
 
-Task 1 `bdPerformanceInfo` records are:
+`PerformanceTask.SUBMIT_PERFORMANCE` uses `bdPerformanceInfo` records:
 
 ```text
 typed u64 user ID
 typed s32 performance input
 ```
 
-Task 2 requests a typed `u32` context followed by repeated typed `u64` user
-IDs. Its counted result records are 16 bytes in memory and deserialize as:
+`PerformanceTask.GET_PERFORMANCE_VALUES` requests a typed `u32` context followed
+by repeated typed `u64` user IDs. Its counted result records are 16 bytes in
+memory and deserialize as:
 
 ```text
 typed u64 user ID
 typed s64 performance value
 ```
 
-## Service 6 and lobby push class `0x28`
+## Messaging and lobby push class `0x28`
 
-The outgoing service-6/task-8 request contains:
+The outgoing `LobbyService.MESSAGING` /
+`MessagingTask.SEND_GLOBAL_INSTANT_MESSAGE` request contains:
 
 ```text
 typed u8    context
@@ -405,10 +449,11 @@ The authentication tag covers the final 16 bytes. Direct probe type `0x0D` is
 accepted only when its identifier matches the receiver's common-address
 identifier.
 
-## Service 18: bandwidth byte mode
+## Bandwidth byte mode (`LobbyService.BANDWIDTH_TEST`)
 
-Service 18 task 1 bypasses typed task fields. MP `0x00075B50` sends a raw
-16-byte bootstrap request. The bootstrap result parser at `0x00075318` reads:
+`BandwidthTask.RUN_TEST` bypasses typed task fields. MP `0x00075B50` sends a
+raw 16-byte bootstrap request. The bootstrap result parser at `0x00075318`
+reads:
 
 ```text
 u8       status

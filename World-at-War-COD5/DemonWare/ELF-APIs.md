@@ -137,13 +137,13 @@ state beginning at object offset `+0x4C`.
 
 ### Low-level task serializers
 
-| Operation | Service/task | MP | SP | Confidence |
+| Operation | DemonWare operation | MP | SP | Confidence |
 | --- | --- | ---: | ---: | --- |
-| upload named file | `10/1` | `0x00084C88` | `0x00084578` | confirmed |
-| update existing file | `10/2` | `0x00085540` | `0x00084E30` | high |
-| get publisher or user file by ID | `10/5` | `0x000853F8` | `0x00084CE8` | confirmed |
-| list files by owner | `10/7` | `0x00085188` | `0x00084A78` | confirmed |
-| list publisher files | `10/8` | `0x00084F80` | `0x00084870` | high |
+| upload named file | `StorageTask.UPLOAD_USER_FILE` | `0x00084C88` | `0x00084578` | confirmed |
+| update existing file | `StorageTask.UPDATE_USER_FILE` | `0x00085540` | `0x00084E30` | high |
+| get publisher or user file by ID | `StorageTask.GET_FILE` | `0x000853F8` | `0x00084CE8` | confirmed |
+| list files by owner | `StorageTask.LIST_USER_FILES` | `0x00085188` | `0x00084A78` | confirmed |
+| list publisher files | `StorageTask.LIST_PUBLISHER_FILES` | `0x00084F80` | `0x00084870` | high |
 
 The SP serializers call `0x00081248
 bdRemoteTaskManager_startTask_candidate`. The MP serializers call the separate
@@ -164,7 +164,8 @@ MP entry at `0x00081548`.
 | pump new/update selection | `0x00457E18` | `0x0034C9C0` | high |
 
 Both game images use 32 live task slots of `0x18` bytes. The pump selects
-task 1 for a new file and task 2 after an existing `u64` file ID is known.
+`StorageTask.UPLOAD_USER_FILE` for a new file and
+`StorageTask.UPDATE_USER_FILE` after an existing `u64` file ID is known.
 
 ### Storage result objects
 
@@ -202,15 +203,17 @@ ownership byte at `+0xB0`.
 | four-column row serialize | — | `0x00333FC8` | confirmed | Rating base plus four signed columns |
 | ten-column row serialize | — | `0x003360F0` | confirmed | Rating base plus ten signed columns |
 | leaderboard page deserialize | `0x00440378` | — | confirmed | Reads total available then the envelope-supplied row count |
-| refresh leaderboard page | `0x00440890` | — | confirmed | Starts task 4 entity read or task 5 pivot/rank read |
+| refresh leaderboard page | `0x00440890` | — | confirmed | Starts `StatsTask.READ_BY_ENTITY` or `StatsTask.READ_BY_PIVOT_OR_RANK` |
 | counted-result parser | `0x00077580` | — | confirmed | Accepts discriminators 1, 4, or 5 and reads row count |
 
-MP `0x00081C28` starts service 4 task 10, and MP `0x00082F00` writes each
-bulk row's ID, entity ID, one byte, virtual field count, and concrete row
-serializer. SP captures prove task 10 repeats rows without a top-level count.
+MP `0x00081C28` starts `LobbyService.STATS` /
+`StatsTask.WRITE_MULTIPLE`, and MP `0x00082F00` writes each bulk row's ID,
+entity ID, one byte, virtual field count, and concrete row serializer. SP
+captures prove `StatsTask.WRITE_MULTIPLE` repeats rows without a top-level
+count.
 
-The task ID does not uniquely select the concrete row type: SP solo Zombies
-has sent service 4 task 1 with a four-column board-1023 row.
+The task operation does not uniquely select the concrete row type: SP solo
+Zombies has sent `StatsTask.WRITE` with a four-column board-1023 row.
 
 ## KeyArchive and title utilities (MP image)
 
@@ -221,10 +224,10 @@ has sent service 4 task 1 with a four-column board-1023 row.
 | `0x00072758` | `bdArchiveValue_deserialize` | confirmed | Reads variant then payload; no update-operation byte in replies |
 | `0x00072A28` | `bdArchiveValue_serialize` | confirmed | Writes variant, update operation, then payload |
 | `0x0046AA20` | `bdKeyArchive_writeKeys` | confirmed | Key request serializer identified by retained assertion |
-| `0x0046B038` | `bdKeyArchive_startReadKeysTask3_candidate` | high | Starts service 16 task 3 |
-| `0x000744A8` | `bdKeyArchive_startTask4_candidate` | high | Writes entity ID and two booleans for task 4 |
+| `0x0046B038` | `bdKeyArchive_startReadKeysTask3_candidate` | high | Starts `KeyArchiveTask.READ_BY_KEYS` |
+| `0x000744A8` | `bdKeyArchive_startTask4_candidate` | high | Writes entity ID and two booleans for `KeyArchiveTask.READ_BY_ENTITY` |
 | `0x0046BEC8` | `bdKeyArchive_parseReadResponse` | confirmed | Parses operation 3/4 key and entity/value tables |
-| `0x00085B70` | `bdTitleUtilities_verifyString` | confirmed | Starts service 12 task 1 with bounded string |
+| `0x00085B70` | `bdTitleUtilities_verifyString` | confirmed | Starts `TitleUtilitiesTask.VERIFY_STRING` with a bounded string |
 | `0x00085E90` | `bdVerifyStringResult_deserialize` | confirmed | Reads one typed `u32` status |
 | `0x0020FD68` | `Live_VerifyStringSync_candidate` | high | Polls synchronously; nonzero means profanity detected |
 
@@ -232,18 +235,18 @@ has sent service 4 task 1 with a four-column board-1023 row.
 
 | MP address | API | Confidence | Purpose |
 | ---: | --- | --- | --- |
-| `0x00077408` | `bdMatchMaking_startTask_candidate` | high | Serializes one request and starts service 5 |
-| `0x00077550` | `bdMatchMaking_findSessions` | confirmed | Service 5 task 5 |
-| `0x00077560` | `bdMatchMaking_updateSession` | confirmed | Service 5 task 2 |
-| `0x00077570` | `bdMatchMaking_createSession` | confirmed | Service 5 task 1 |
-| `0x000778A0` | `bdMatchMaking_deleteSession` | confirmed | Service 5 task 3 with eight-byte session ID |
+| `0x00077408` | `bdMatchMaking_startTask_candidate` | high | Serializes one request and starts `LobbyService.MATCHMAKING` |
+| `0x00077550` | `bdMatchMaking_findSessions` | confirmed | `MatchmakingTask.FIND_SESSIONS` |
+| `0x00077560` | `bdMatchMaking_updateSession` | confirmed | `MatchmakingTask.UPDATE_SESSION` |
+| `0x00077570` | `bdMatchMaking_createSession` | confirmed | `MatchmakingTask.CREATE_SESSION` |
+| `0x000778A0` | `bdMatchMaking_deleteSession` | confirmed | `MatchmakingTask.DELETE_SESSION` with eight-byte session ID |
 | `0x00078408` | `bdMatchMakingInfo_deserializeBase` | confirmed | Common address, security ID/key, four signed and two unsigned fields |
 | `0x0047F820` | `bdMatchMakingSearchInfo_deserialize` | confirmed | Adds nine signed fields; extended field 6 is playlist ID |
-| `0x00470928` | `Live_StartFindSessions_candidate` | confirmed | Builds WaW's search request and starts task 5 |
+| `0x00470928` | `Live_StartFindSessions_candidate` | confirmed | Builds WaW's search request and starts `MatchmakingTask.FIND_SESSIONS` |
 | `0x00470CA0` | `Live_StartUpdateSession_candidate` | high | Builds update request |
 | `0x00471130` | `Live_StartCreateSession_candidate` | high | Builds create request |
-| `0x0007FA28` | `bdPerformance_submitPerformance_candidate` | high | Service 17 task 1 |
-| `0x0007FEA8` | `bdPerformance_getPerformanceValues` | confirmed | Service 17 task 2 |
+| `0x0007FA28` | `bdPerformance_submitPerformance_candidate` | high | `PerformanceTask.SUBMIT_PERFORMANCE` |
+| `0x0007FEA8` | `bdPerformance_getPerformanceValues` | confirmed | `PerformanceTask.GET_PERFORMANCE_VALUES` |
 | `0x0007FB90` | `bdPerformance_parsePerformanceValuesReply` | confirmed | Accepts discriminator 2/3 and counted values |
 
 `bdMatchMakingInfo` stores the eight-byte security ID at result `+0x04`,
@@ -279,7 +282,8 @@ external six-byte `bdAddr`, and one NAT-type byte.
 
 ## Bandwidth-test client
 
-Service 18 uses the raw-task starter rather than ordinary typed request fields.
+`LobbyService.BANDWIDTH_TEST` uses the raw-task starter rather than ordinary
+typed request fields.
 
 | MP address | API | Confidence |
 | ---: | --- | --- |
