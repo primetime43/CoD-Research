@@ -43,6 +43,7 @@
 - **DemonWare (PS3 ELF)**
   - [Overview](DemonWare/README.md)
   - [ELF APIs & Tables](DemonWare/ELF-APIs.md)
+  - [Operation Lookup](DemonWare/Operations.md)
   - [Wire Formats & Objects](DemonWare/Wire-Formats.md)
   - [ELF Call-Flow Charts](DemonWare/Flow-Charts.md)
 

@@ -32,46 +32,9 @@ The first bit of an ordinary task/result bit buffer is `m_typeChecked`. The
 constructor at MP/SP `0x0004E480` consumes that bit before any field tag is
 read.
 
-## DemonWare operation names
-
-The rest of this page uses symbolic service and task names so each operation is
-readable without memorizing protocol numbers. Raw values are retained only in
-these lookup tables for packet decoding.
-
-| Service enum | Wire ID |
-| --- | ---: |
-| `LobbyService.STATS` | `4` |
-| `LobbyService.MATCHMAKING` | `5` |
-| `LobbyService.MESSAGING` | `6` |
-| `LobbyService.STORAGE` | `10` |
-| `LobbyService.TITLE_UTILITIES` | `12` |
-| `LobbyService.KEY_ARCHIVE` | `16` |
-| `LobbyService.PERFORMANCE` | `17` |
-| `LobbyService.BANDWIDTH_TEST` | `18` |
-
-| Service | Task enum | Wire ID |
-| --- | --- | ---: |
-| Stats | `StatsTask.WRITE` | `1` |
-| Stats | `StatsTask.READ_BY_ENTITY` | `4` |
-| Stats | `StatsTask.READ_BY_PIVOT_OR_RANK` | `5` |
-| Stats | `StatsTask.WRITE_MULTIPLE` | `10` |
-| Matchmaking | `MatchmakingTask.CREATE_SESSION` | `1` |
-| Matchmaking | `MatchmakingTask.UPDATE_SESSION` | `2` |
-| Matchmaking | `MatchmakingTask.DELETE_SESSION` | `3` |
-| Matchmaking | `MatchmakingTask.FIND_SESSIONS` | `5` |
-| Messaging | `MessagingTask.SEND_GLOBAL_INSTANT_MESSAGE` | `8` |
-| Storage | `StorageTask.UPLOAD_USER_FILE` | `1` |
-| Storage | `StorageTask.UPDATE_USER_FILE` | `2` |
-| Storage | `StorageTask.GET_FILE` | `5` |
-| Storage | `StorageTask.LIST_USER_FILES` | `7` |
-| Storage | `StorageTask.LIST_PUBLISHER_FILES` | `8` |
-| Title utilities | `TitleUtilitiesTask.VERIFY_STRING` | `1` |
-| KeyArchive | `KeyArchiveTask.WRITE` | `1` |
-| KeyArchive | `KeyArchiveTask.READ_BY_KEYS` | `3` |
-| KeyArchive | `KeyArchiveTask.READ_BY_ENTITY` | `4` |
-| Performance | `PerformanceTask.SUBMIT_PERFORMANCE` | `1` |
-| Performance | `PerformanceTask.GET_PERFORMANCE_VALUES` | `2` |
-| Bandwidth test | `BandwidthTask.RUN_TEST` | `1` |
+Operation names and their numeric protocol values are listed on the standalone
+[DemonWare Operation Lookup](Operations.md). The remainder of this page uses
+those symbolic names.
 
 ## PS3 authentication request
 

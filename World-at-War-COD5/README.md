@@ -49,6 +49,8 @@ custom-server implementation.
   evidence rules, and service/task matrix
 - [ELF APIs and tables](DemonWare/ELF-APIs.md) - Target-qualified virtual
   addresses, wrappers, globals, vtables, and recovered object fields
+- [DemonWare operation lookup](DemonWare/Operations.md) - Readable service/task
+  enum names, raw wire IDs, and operation meanings
 - [Wire formats and objects](DemonWare/Wire-Formats.md) - Legacy typed fields,
   authentication/lobby crypto, request/result layouts, stats, invites, and NAT
 - [ELF call-flow charts](DemonWare/Flow-Charts.md) - Authentication, lobby

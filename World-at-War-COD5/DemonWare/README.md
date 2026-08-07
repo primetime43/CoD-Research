@@ -78,9 +78,10 @@ second image is not sufficient proof.
 
 - [ELF APIs and tables](ELF-APIs.md) — functions, vtables, globals, wrapper
   APIs, and recovered object fields.
-- [Wire formats and objects](Wire-Formats.md) — the symbolic-operation-to-wire
-  lookup, typed fields, crypto framing, task payloads, result layouts, stats
-  rows, invites, and NAT packets.
+- [DemonWare operation lookup](Operations.md) — readable service/task enum
+  names, raw wire IDs, and operation meanings.
+- [Wire formats and objects](Wire-Formats.md) — typed fields, crypto framing,
+  task payloads, result layouts, stats rows, invites, and NAT packets.
 - [ELF call-flow charts](Flow-Charts.md) — actual client-side control flow from
   authentication through lobby tasks and peer networking.
 
